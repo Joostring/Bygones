@@ -1,0 +1,16 @@
+{
+    "name": "com.agostonr.cone-cast-demo",
+    "rootNamespace": "",
+    "references": [
+        "GUID:492348e8004589a4dae08499a5ced721"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

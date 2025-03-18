@@ -1,0 +1,19 @@
+{
+  "name": "com.agostonr.cone-cast",
+  "version": "1.0.0",
+  "displayName": "Cone Cast Script",
+  "description": "A simple script that shoots lines in a cone shape",
+  "unity": "2022.3",
+  "unityRelease": "47f1",
+  "dependencies": {
+    "com.unity.shadergraph": "14.0.11"
+  },
+  "keywords": [
+    "code", "cone", "script", "cone-cast"
+  ],
+  "author": {
+    "name": "Agoston Romhanyi",
+    "email": "amsiamun.dev@gmail.com",
+    "url": "https://github.com/agostonr"
+  }
+}
