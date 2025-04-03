@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,60 +8,149 @@ public class PlayerMovement : MonoBehaviour
     public float RunSpeed;
     public float JumpStrength;
 
+    public Animator animator;
+
     private CharacterController controller;
     private Vector3 currentMoveVelocity;
     private Vector3 MoveDampVelocity;
 
     private Vector3 CurrentForceVelocity;
 
+    private bool isPlayerMoving = true;
+    private bool isReversedMoving = false;
+    private bool isFlashbackOn = false;
+
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 PlayerInput = new Vector3
+        if (isPlayerMoving && !isReversedMoving && !isFlashbackOn)
         {
-            x = Input.GetAxisRaw("Horizontal"),
-            y = 0f,
-            z = Input.GetAxisRaw("Vertical"),
-        };
+            Vector3 PlayerInput = new Vector3
+            {
+                x = Input.GetAxisRaw("Horizontal"),
+                y = 0f,
+                z = Input.GetAxisRaw("Vertical"),
+            };
 
-        if(PlayerInput.magnitude > 1f)
-
-        {
-            PlayerInput.Normalize();
-        }
-
-        Vector3 MoveVector = transform.TransformDirection(PlayerInput);
-        float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? RunSpeed : WalkSpeed;
-
-        currentMoveVelocity = Vector3.SmoothDamp(currentMoveVelocity, MoveVector * currentSpeed, ref MoveDampVelocity, MoveSmoothTime);
-
-        controller.Move(currentMoveVelocity * Time.deltaTime);
-
-        Ray groundCheckRay = new Ray(transform.position, Vector3.down);
-        if(Physics.Raycast(groundCheckRay, 1.1f))
-
-        {
-            CurrentForceVelocity.y = -2f;
-
-            if(Input.GetKey(KeyCode.Space))
+            if (PlayerInput.magnitude > 1f)
 
             {
-
-                CurrentForceVelocity.y = JumpStrength;
+                PlayerInput.Normalize();
             }
+
+            Vector3 MoveVector = transform.TransformDirection(PlayerInput);
+            float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? RunSpeed : WalkSpeed;
+
+            currentMoveVelocity = Vector3.SmoothDamp(currentMoveVelocity, MoveVector * currentSpeed, ref MoveDampVelocity, MoveSmoothTime);
+
+            controller.Move(currentMoveVelocity * Time.deltaTime);
+
+            if (MoveVector == Vector3.zero)
+            {
+                animator.SetFloat("Speed", 0f);
+            }
+            else
+            {
+                animator.SetFloat("Speed", 0.5f);
+            }
+
+            Ray groundCheckRay = new Ray(transform.position, Vector3.down);
+            if (Physics.Raycast(groundCheckRay, 1.1f))
+
+            {
+                CurrentForceVelocity.y = -2f;
+
+                if (Input.GetKey(KeyCode.Space))
+
+                {
+
+                    CurrentForceVelocity.y = JumpStrength;
+                }
+            }
+            else
+            {
+                CurrentForceVelocity.y -= GravityStrength * Time.deltaTime;
+            }
+
+            controller.Move(CurrentForceVelocity * Time.deltaTime);
         }
-        else
+
+        else if (isReversedMoving && !isPlayerMoving && !isFlashbackOn)
         {
-            CurrentForceVelocity.y -= GravityStrength * Time.deltaTime;
+            Vector3 PlayerInput = new Vector3
+            {
+                x = Input.GetAxisRaw("Vertical"),
+                y = 0f,
+                z = Input.GetAxisRaw("Horizontal"),
+            };
+
+            if (PlayerInput.magnitude > 1f)
+
+            {
+                PlayerInput.Normalize();
+            }
+
+            Vector3 MoveVector = transform.TransformDirection(PlayerInput);
+            float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? RunSpeed : WalkSpeed;
+
+            currentMoveVelocity = Vector3.SmoothDamp(currentMoveVelocity, MoveVector * currentSpeed, ref MoveDampVelocity, MoveSmoothTime);
+
+            controller.Move(currentMoveVelocity * Time.deltaTime);
+
+
+            if (MoveVector == Vector3.zero)
+            {
+                animator.SetFloat("Speed", 0f);
+            }
+            else
+            {
+                animator.SetFloat("Speed", 0.5f);
+            }
+
+            Ray groundCheckRay = new Ray(transform.position, Vector3.down);
+            if (Physics.Raycast(groundCheckRay, 1.1f))
+
+            {
+                CurrentForceVelocity.y = -2f;
+
+                if (Input.GetKey(KeyCode.Space))
+
+                {
+
+                    CurrentForceVelocity.y = JumpStrength;
+                }
+            }
+            else
+            {
+                CurrentForceVelocity.y -= GravityStrength * Time.deltaTime;
+            }
+
+            controller.Move(CurrentForceVelocity * Time.deltaTime);
+
         }
+        else if (isFlashbackOn)
+        {
 
-        controller.Move(CurrentForceVelocity * Time.deltaTime);
+        }
+    }
 
+    public void SetMovementState(bool value)
+    {
+        isPlayerMoving = value;
+    }
+    public void SetReversedMovementState(bool value)
+    {
+        isReversedMoving = value;
+    }
+    public void SetStopMovement(bool value)
+    {
+        isFlashbackOn = value;
     }
 }

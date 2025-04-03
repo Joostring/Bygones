@@ -27,11 +27,11 @@ public class Pills : MonoBehaviour
 
             if (pillTimer < 50)
             {
-                lowSanityTimer.PillSanityGain(10);
+                lowSanityTimer.SanityGain(10);
             }
             else
             {
-                lowSanityTimer.PillSanityGain(1);
+                lowSanityTimer.SanityGain(1);
             }
             pillTimer = 100;
         }

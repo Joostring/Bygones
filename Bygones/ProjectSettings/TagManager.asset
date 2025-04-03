@@ -6,6 +6,10 @@ TagManager:
   tags:
   - InteractableTag
   - InteractiveObject
+  - Item
+  - Pickable
+  - Open
+  - Locked
   layers:
   - Default
   - TransparentFX

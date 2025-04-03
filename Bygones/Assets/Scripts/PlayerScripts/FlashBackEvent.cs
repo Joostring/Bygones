@@ -45,7 +45,6 @@ public class FlashBackEvent : MonoBehaviour
     public void SetFlashBackEvent(bool state)
     {
         isFlashBack = state;
-
     }
 
  

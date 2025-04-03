@@ -19,16 +19,19 @@ public class RaycastDoor : MonoBehaviour
     private bool isCrosshairActive;
     private bool doOnce;
 
-    private const string interactebleTag = "InteractiveObject";
+    private const string interactebleTag = "Open";
 
     private void Update()
     {
         RaycastHit hit;
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        //Vector3 forward = transform.TransformDirection(Vector3.forward);
+
+        Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
+        Debug.DrawRay(transform.position + new Vector3(0,1,0), forward, Color.green);
 
         int mask = 1 << LayerMask.NameToLayer(excludeLayerName) | layerMaskInteract.value;
 
-        if(Physics.Raycast(transform.position,forward,out hit, rayLenght, mask))
+        if(Physics.Raycast(transform.position + new Vector3(0,1,0),forward,out hit, rayLenght, mask))
         {
             if(hit.collider.CompareTag(interactebleTag))
             {
@@ -41,9 +44,13 @@ public class RaycastDoor : MonoBehaviour
                 isCrosshairActive = true;
                 doOnce = true;
 
-                if(Input.GetKeyDown(openDoorKey))
+                //if(Input.GetKeyDown(openDoorKey))
+                //{
+                //    raycastedObject.PlayAnimationSingle();
+                //}
+                if (Input.GetKeyDown(openDoorKey))
                 {
-                    raycastedObject.PlayAnimation();
+                    raycastedObject.PlayAnimationDouble();
                 }
             }
         }
