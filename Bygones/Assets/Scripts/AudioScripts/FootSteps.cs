@@ -1,6 +1,7 @@
 // Author Jonas Östring
 
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class FootSteps : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class FootSteps : MonoBehaviour
     [SerializeField]
     private AudioClip[] mudClips;
     
+    
 
     private AudioSource audioSource;
     private TerrainDetector terrainDetector;
@@ -19,6 +21,8 @@ public class FootSteps : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         terrainDetector = new TerrainDetector();
+        
+       
     }
 
     private void Step()

@@ -81,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
             controller.Move(CurrentForceVelocity * Time.deltaTime);
         }
+    
 
         else if (isReversedMoving && !isPlayerMoving && !isFlashbackOn)
         {
@@ -97,48 +98,48 @@ public class PlayerMovement : MonoBehaviour
                 PlayerInput.Normalize();
             }
 
-            Vector3 MoveVector = transform.TransformDirection(PlayerInput);
-            float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? RunSpeed : WalkSpeed;
+Vector3 MoveVector = transform.TransformDirection(PlayerInput);
+float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? RunSpeed : WalkSpeed;
 
-            currentMoveVelocity = Vector3.SmoothDamp(currentMoveVelocity, MoveVector * currentSpeed, ref MoveDampVelocity, MoveSmoothTime);
+currentMoveVelocity = Vector3.SmoothDamp(currentMoveVelocity, MoveVector * currentSpeed, ref MoveDampVelocity, MoveSmoothTime);
 
-            controller.Move(currentMoveVelocity * Time.deltaTime);
+controller.Move(currentMoveVelocity * Time.deltaTime);
 
 
-            if (MoveVector == Vector3.zero)
-            {
-                animator.SetFloat("Speed", 0f);
-            }
-            else
-            {
-                animator.SetFloat("Speed", 0.5f);
-            }
+if (MoveVector == Vector3.zero)
+{
+    animator.SetFloat("Speed", 0f);
+}
+else
+{
+    animator.SetFloat("Speed", 0.5f);
+}
 
-            Ray groundCheckRay = new Ray(transform.position, Vector3.down);
-            if (Physics.Raycast(groundCheckRay, 1.1f))
+Ray groundCheckRay = new Ray(transform.position, Vector3.down);
+if (Physics.Raycast(groundCheckRay, 1.1f))
 
-            {
-                CurrentForceVelocity.y = -2f;
+{
+    CurrentForceVelocity.y = -2f;
 
-                if (Input.GetKey(KeyCode.Space))
+    if (Input.GetKey(KeyCode.Space))
 
-                {
+    {
 
-                    CurrentForceVelocity.y = JumpStrength;
-                }
-            }
-            else
-            {
-                CurrentForceVelocity.y -= GravityStrength * Time.deltaTime;
-            }
+        CurrentForceVelocity.y = JumpStrength;
+    }
+}
+else
+{
+    CurrentForceVelocity.y -= GravityStrength * Time.deltaTime;
+}
 
-            controller.Move(CurrentForceVelocity * Time.deltaTime);
+controller.Move(CurrentForceVelocity * Time.deltaTime);
 
         }
         else if (isFlashbackOn)
-        {
+{
 
-        }
+}
     }
 
     public void SetMovementState(bool value)

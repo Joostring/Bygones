@@ -52,7 +52,7 @@ public class LowSanityTimer : MonoBehaviour
            
         }
 
-        if(sanityProcentage <= 50f)
+        if (sanityProcentage <= 50f)
         {
             playermovement.SetReversedMovementState(true);
             playermovement.SetMovementState(false);
