@@ -31,7 +31,7 @@ public class Pills : MonoBehaviour
             }
             else
             {
-                lowSanityTimer.SanityGain(1);
+                lowSanityTimer.SanityGain(3);
             }
             pillTimer = 100;
         }

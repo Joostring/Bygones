@@ -52,7 +52,7 @@ public class LowSanityTimer : MonoBehaviour
            
         }
 
-        if (sanityProcentage <= 50f)
+        if (sanityProcentage <= 25f)
         {
             playermovement.SetReversedMovementState(true);
             playermovement.SetMovementState(false);
@@ -71,7 +71,7 @@ public class LowSanityTimer : MonoBehaviour
     {
         float previousSanity = sanityProcentage;
         sanityProcentage += value;
-        if (previousSanity <= 50f && sanityProcentage > 50f && itemsToFadeIn.Length > 0)
+        if (previousSanity <= 25f && sanityProcentage > 25f && itemsToFadeIn.Length > 0)
         {
             foreach (Fadein item in itemsToFadeIn)
             {
