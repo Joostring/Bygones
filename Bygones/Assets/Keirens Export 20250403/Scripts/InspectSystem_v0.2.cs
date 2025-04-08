@@ -35,7 +35,7 @@ public class InspectSystem : MonoBehaviour
     private bool isInspecting = false;
     private Vector3 originalPosition;
     private Quaternion originalRotation;
-    public float currentZoom = 0.4f;
+    public float currentZoom = 0.5f;
 
     private PlayerMovement playerMovement;
     private PlayerLook playerLook;
@@ -197,15 +197,20 @@ public class InspectSystem : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Vector3 deltaMousePosition = Input.mousePosition - previousMousePos;
-            float rotationX = deltaMousePosition.y * rotationSpeed * Time.deltaTime;
-            float rotationY = -deltaMousePosition.x * rotationSpeed * Time.deltaTime;
 
-            Quaternion rotation = Quaternion.Euler(rotationX, rotationY, 0);
-            objectToInspect.rotation = rotation * objectToInspect.rotation;
+            float rotationY = -deltaMousePosition.x * rotationSpeed * Time.deltaTime;
+            float rotationX = -deltaMousePosition.y * rotationSpeed * Time.deltaTime; 
+
+            
+            objectToInspect.Rotate(Vector3.up, rotationY, Space.World);  
+            objectToInspect.Rotate(Vector3.right, rotationX, Space.Self);
+
             previousMousePos = Input.mousePosition;
         }
+    
 
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+    float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll != 0f)
         {
             currentZoom = Mathf.Clamp(currentZoom - scroll * zoomSpeed, minZoom, maxZoom);
@@ -476,8 +481,8 @@ public class InspectSystem : MonoBehaviour
                 uiElements[7].SetActive(true);
                 BackgroundUI.SetActive(true);
                 PickupUI.SetActive(true);
-                minZoom = 0.45f;
-                maxZoom = 0.7f;
+                minZoom = 0.7f;
+                maxZoom = 1f;
                 break;
 
             default:
