@@ -7,7 +7,7 @@ using UnityEngine;
 public class SingleDoorController : MonoBehaviour
 {
     private Animator doorAnim;
-    private bool doorOpen = false;
+    public bool doorOpen = false;
 
     [Header("Put the name of the key here")]
     [SerializeField] private string nameOfKeyForDoor;
@@ -16,6 +16,7 @@ public class SingleDoorController : MonoBehaviour
     [Header("Animation Names")]
     [SerializeField] private string openAnimationName = "DoorOpen";
     [SerializeField] private string closeAnimationName = "DoorClose";
+    [SerializeField] private string slamAnimationName = "SlamClose";
     
 
     [Header("Pause Timer")]
@@ -31,6 +32,10 @@ public class SingleDoorController : MonoBehaviour
     [Tooltip("The audiosource for closing the door")]
     [SerializeField] private AudioSource Close = null;
     [SerializeField] private float closeDelay = 0f;
+    [Space(10)]
+    [Tooltip("The audiosource for slamming the door")]
+    [SerializeField] private AudioSource SlamClose = null;
+    [SerializeField] private float slamDelay = 0f;
 
     private void Awake()
     {
@@ -62,6 +67,17 @@ public class SingleDoorController : MonoBehaviour
         }
 
 
+    }
+
+   public void SlamAnimation()
+    {
+        if (doorOpen) 
+        {
+            doorAnim.Play(slamAnimationName, 0, 0.0f);
+            SlamClose.PlayDelayed(slamDelay); 
+            doorOpen = false ;
+        }
+        
     }
 
     public string GetRequiredKey()

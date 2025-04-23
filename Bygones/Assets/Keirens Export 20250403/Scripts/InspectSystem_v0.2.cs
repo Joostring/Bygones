@@ -227,6 +227,15 @@ public class InspectSystem : MonoBehaviour
         {
             PickupItem();
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            NoteReader noteReader = objectToInspect?.GetComponent<NoteReader>();
+            if (noteReader != null)
+            {
+                noteReader.ToggleNoteUI();
+            }
+        }
     }
 
     void StartInspectMode(Transform target)
@@ -250,7 +259,9 @@ public class InspectSystem : MonoBehaviour
 
         TogglePlayerControl(false);
 
-       
+        
+
+
         if (cursorManager != null)
         {
             cursorManager.gameObject.SetActive(false);
@@ -278,7 +289,14 @@ public class InspectSystem : MonoBehaviour
 
         TogglePlayerControl(true);
 
-        
+        NoteReader noteReader = objectToInspect?.GetComponent<NoteReader>();
+        if (noteReader != null)
+        {
+            noteReader.HideNote();
+        }
+        resetUI();
+
+
         if (cursorManager != null)
         {
             cursorManager.gameObject.SetActive(true);
@@ -483,6 +501,13 @@ public class InspectSystem : MonoBehaviour
                 PickupUI.SetActive(true);
                 minZoom = 0.7f;
                 maxZoom = 1f;
+                break;
+            case "Matches_Inspect":
+                uiElements[8].SetActive(true);
+                BackgroundUI.SetActive(true);
+                PickupUI.SetActive(true);
+                minZoom = 0.5f;
+                maxZoom = 0.7f;
                 break;
 
             default:

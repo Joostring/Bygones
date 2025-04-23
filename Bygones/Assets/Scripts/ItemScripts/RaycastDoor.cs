@@ -1,4 +1,4 @@
-// Author Ylva Sundblad
+// Author Ylva Sundblad, Jonas Östring
 
 using System.Collections;
 using System.Collections.Generic;

@@ -6,7 +6,7 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class LowSanityTimer : MonoBehaviour
 {
-    [SerializeField] float sanityProcentage = 100f;
+    [SerializeField] public float sanityProcentage = 100f;
     [SerializeField] PostProcessVolume sanityVolume;
     [SerializeField] float sanityDrainRate = 5f;
 
@@ -15,7 +15,12 @@ public class LowSanityTimer : MonoBehaviour
     [SerializeField] Fadein[] itemsToFadeIn;
     [SerializeField] PlayerMovement playermovement;
 
+   //[SerializeField] private SanitySounds sanitySounds;
 
+    //private void Awake()
+    //{
+    //    sanitySounds = GetComponent<SanitySounds>();
+    //}
 
     // Update is called once per frame
     void Update()
@@ -24,7 +29,10 @@ public class LowSanityTimer : MonoBehaviour
         {
             SanityDraining();
         }
+        //sanitySounds.PlaySanity();
     }
+
+    
 
     private void SanityDraining()
     {
@@ -56,6 +64,7 @@ public class LowSanityTimer : MonoBehaviour
         {
             playermovement.SetReversedMovementState(true);
             playermovement.SetMovementState(false);
+            
         }
         else
         {
@@ -83,5 +92,8 @@ public class LowSanityTimer : MonoBehaviour
             hasTriggedFade = false; 
         }
     }
-
+    public void SanityLoss(float value)
+    {
+        sanityProcentage -= value;
+    }
 }
