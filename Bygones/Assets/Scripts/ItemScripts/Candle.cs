@@ -34,7 +34,7 @@ public class Candle : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player" && unLit)
+        if (other.gameObject.tag == "Player")
         {
             inReach = false;
             lightText.SetActive(false);
