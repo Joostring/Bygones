@@ -27,7 +27,7 @@ public class SanitySounds : MonoBehaviour
 
     private void PlaySanity()
     {
-        Debug.Log("Starting");
+        
         if(timer.sanityProcentage <= 25f)
         {
             Debug.Log("Under 25");

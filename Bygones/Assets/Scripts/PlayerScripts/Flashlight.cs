@@ -4,11 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Flashlight : MonoBehaviour
 {
     [Tooltip("The light of the flashlight")]
     [SerializeField] GameObject LightSource;
+    private bool flashTimer = true;
    
     private bool flashLightEnabled = false;
     void Start()
@@ -21,10 +23,9 @@ public class Flashlight : MonoBehaviour
     void Update()
     {
 
-        //FlashLightON();
-
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.F) && flashTimer == true)
         {
+            StartCoroutine(FlashlightCoooldown());
             if (!flashLightEnabled)
             {
                 LightSource.gameObject.SetActive(true);
@@ -38,41 +39,16 @@ public class Flashlight : MonoBehaviour
         }
     }
 
-    private void FlashLightON()
+    public IEnumerator FlashlightCoooldown()
     {
-        //if (Input.GetKey(KeyCode.F))
-        //{
-        //    if (!flashLightEnabled)
-        //    {
-        //        LightSource.gameObject.SetActive(true);
-        //        flashLightEnabled = true;
-        //    }
-        //    else
-        //    {
-        //        LightSource.gameObject.SetActive(false);
-        //        flashLightEnabled = false;
-        //    }
-        //}
+        flashTimer = false;
+        yield return new WaitForSeconds(2);
+        flashTimer = true;
+        
+
     }
 
-    public void FlashlightON(InputValue input)
-    {
-       
-        //if (!flashLightEnabled)
-        //{
-        //    LightSource.gameObject.SetActive(true);
-        //    flashLightEnabled = true;
-        //}
-        //else
-        //{
-        //    LightSource.gameObject.SetActive(false);
-        //    flashLightEnabled = false;
-        //}
-    }
 
-    public void FlashlightOFF(InputValue input)
-    {
-        //LightSource.gameObject.SetActive(false);
-        //flashLightEnabled = false;
-    }
+
+
 }

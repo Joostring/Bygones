@@ -12,6 +12,7 @@ public class InspectSystem : MonoBehaviour
     public LayerMask interactableLayer;
     public CursorManager cursorManager;
     public GameObject BackgroundUI;
+    public GameObject Read_UI;
     public GameObject PickupUI;
     public GameObject crosshair;
 
@@ -223,7 +224,7 @@ public class InspectSystem : MonoBehaviour
             ExitInspectMode();
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             PickupItem();
         }
@@ -428,6 +429,7 @@ public class InspectSystem : MonoBehaviour
     {
         BackgroundUI.SetActive(false);
         PickupUI.SetActive(false);
+        Read_UI.SetActive(false);
     }
 
     public bool HasKey(string keyName)
@@ -498,7 +500,7 @@ public class InspectSystem : MonoBehaviour
             case "Note_1_Inspect":
                 uiElements[7].SetActive(true);
                 BackgroundUI.SetActive(true);
-                PickupUI.SetActive(true);
+                Read_UI.SetActive(true);
                 minZoom = 0.7f;
                 maxZoom = 1f;
                 break;

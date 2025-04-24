@@ -10,6 +10,7 @@ public class Candle : MonoBehaviour
     [SerializeField] private GameObject[] flames;
     [SerializeField] private GameObject lightText;
     [SerializeField] private KeyCode lightKey = KeyCode.E;
+    [SerializeField] public InspectSystem inspectsystem;
 
     public bool unLit;
     private bool inReach;
@@ -42,7 +43,7 @@ public class Candle : MonoBehaviour
 
     void Update()
     {
-        if (unLit && inReach && Input.GetKeyDown(lightKey))
+        if (unLit && inReach && Input.GetKeyDown(lightKey) && inspectsystem.HasItem("Matches_Inspect"))
         {
             unLit = false;
 

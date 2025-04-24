@@ -41,25 +41,29 @@ using UnityEngine;
             if (Physics.Raycast(ray, out hit, maxDistance))
             {
                 // Check if the object is on the "Interactable" layer
-                if (((1 << hit.collider.gameObject.layer) & interactableLayer) != 0)
+                if (((1 <<hit.collider.gameObject.layer) & interactableLayer) != 0)
                 {
                     img.rectTransform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     SetCursorToPickup();
-                }
+                Debug.Log("HandCursor");
+            }
                 else if (hit.collider.CompareTag("Locked"))
                 {
                     img.rectTransform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     SetCursorToLocked();
-                }
+                Debug.Log("LockedCursor");
+            }
                 else if (hit.collider.CompareTag("Open"))
                 {
                     img.rectTransform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     SetCursorToDoor();
-                }
+                Debug.Log("DoorCursor");
+            }
                 else
                 {
                     img.rectTransform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
                     SetCursorToDefault();
+                Debug.Log("DefaultCursor");
                 }
             }
             else
