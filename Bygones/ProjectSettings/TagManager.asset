@@ -12,6 +12,8 @@ TagManager:
   - Locked
   - Unlit
   - Lit
+  - Laugh1
+  - Laugh2
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,7 @@ public class RaycastDoor : MonoBehaviour
 
     private SingleDoorController singleDoorRay;
     private DoubleDoorController doubleDoorRay;
+    private GateController gateController;
 
     [SerializeField] private KeyCode openDoorKey = KeyCode.E;
     [SerializeField] private Image crosshair = null;
@@ -29,60 +30,10 @@ public class RaycastDoor : MonoBehaviour
         inspectsystem = FindObjectOfType<InspectSystem>();
         singleDoorRay = FindObjectOfType<SingleDoorController>();
         doubleDoorRay = FindObjectOfType<DoubleDoorController>();
+        gateController = FindObjectOfType<GateController>();
     }
 
-    //private void Update()
-    //{
-    //    RaycastHit hit;
-    //    //Vector3 forward = transform.TransformDirection(Vector3.forward);
-
-    //    Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
-    //    //Debug.DrawRay(transform.position + new Vector3(0,1,0), forward, Color.green);
-
-    //    int mask = 1 << LayerMask.NameToLayer(excludeLayerName) | layerMaskInteract.value;
-
-    //    if(Physics.Raycast(transform.position + new Vector3(0,1,0),forward,out hit, rayLenght, mask))
-    //    {
-    //        if(hit.collider.CompareTag(interactebleTag))
-    //        {
-    //            if(!doOnce)
-    //            {
-    //                singleDoorRay = hit.collider.gameObject.GetComponent<SingleDoorController>();
-    //                doubleDoorRay = hit.collider.gameObject.GetComponent<DoubleDoorController>();
-    //                //CrosshairChange(true);
-    //            }
-
-    //            isCrosshairActive = true;
-    //            doOnce = true;
-
-
-    //            if (Input.GetKeyDown(openDoorKey))
-    //            {
-    //                if(singleDoorRay != null)
-    //                {
-    //                    singleDoorRay.PlayAnimationSingle();
-    //                }
-    //                else if (doubleDoorRay != null)
-    //                {
-    //                    doubleDoorRay.PlayAnimationDouble();
-    //                }
-                    
-    //            }
-    //            //if (Input.GetKeyDown(openDoorKey))
-    //            //{
-    //            //    doubleDoorRay.PlayAnimationDouble();
-    //            //}
-    //        }
-    //    }
-    //    else
-    //    {
-    //        if (isCrosshairActive)
-    //        {
-    //           // CrosshairChange(false);
-    //            doOnce = false;
-    //        }
-    //    }
-    //}
+    
 
 
     private void Update()
@@ -97,6 +48,7 @@ public class RaycastDoor : MonoBehaviour
             {
                 DoubleDoorController D_currentDoor = hit.collider.GetComponent<DoubleDoorController>();
                 SingleDoorController S_currentDoor = hit.collider.GetComponent<SingleDoorController>();
+                GateController currentGate = hit.collider.GetComponent<GateController>();
 
                 if (D_currentDoor != null)
                 {
@@ -133,11 +85,26 @@ public class RaycastDoor : MonoBehaviour
                         }
                     }
                 }
+
+                if(currentGate != null)
+                {
+                    string keyRequired = currentGate.GetRequiredKey();
+
+                    if (Input.GetKey(openDoorKey))
+                    {
+                        if (inspectsystem.HasItem(keyRequired))
+                        {
+                            Debug.Log("Du lyckades öppna grinden med nyckeln: " + keyRequired);
+                            currentGate.PlayAnimation();
+                        }
+                    }
+                }
             }
             if (hit.collider.CompareTag(openTag))
             {
                 DoubleDoorController D_currentDoor = hit.collider.GetComponent<DoubleDoorController>();
                 SingleDoorController S_currentDoor = hit.collider.GetComponent<SingleDoorController>();
+                GateController currentGate = hit.collider.GetComponent<GateController>();
 
                 if (Input.GetKeyDown(openDoorKey))
                 {
@@ -148,6 +115,10 @@ public class RaycastDoor : MonoBehaviour
                     else if (D_currentDoor != null)
                     {
                         D_currentDoor.PlayAnimationDouble();
+                    }
+                    else if(currentGate != null)
+                    {
+                        currentGate.PlayAnimation();
                     }
                 }
             }

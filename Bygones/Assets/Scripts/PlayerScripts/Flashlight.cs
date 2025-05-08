@@ -11,6 +11,8 @@ public class Flashlight : MonoBehaviour
     [Tooltip("The light of the flashlight")]
     [SerializeField] GameObject LightSource;
     private bool flashTimer = true;
+
+    [SerializeField] private InspectSystem inspectSystem;
    
     private bool flashLightEnabled = false;
     void Start()
@@ -23,7 +25,7 @@ public class Flashlight : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.F) && flashTimer == true)
+        if (Input.GetKey(KeyCode.F) && flashTimer == true && inspectSystem.HasItem("Flashlight_Inspect"))
         {
             StartCoroutine(FlashlightCoooldown());
             if (!flashLightEnabled)

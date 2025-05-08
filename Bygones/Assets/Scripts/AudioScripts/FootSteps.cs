@@ -11,6 +11,10 @@ public class FootSteps : MonoBehaviour
     private AudioClip[] stoneClips;
     [SerializeField]
     private AudioClip[] mudClips;
+    [SerializeField]
+    private AudioClip[] dirtClips;
+    [SerializeField]
+    private AudioClip[] floorClips;
     
     
 
@@ -25,6 +29,14 @@ public class FootSteps : MonoBehaviour
        
     }
 
+    //private void Update()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+    //    {
+    //        AudioClip clip = GetRandomClip();
+    //        audioSource.PlayOneShot(clip);
+    //    }
+    //}
     private void Step()
     {
         AudioClip clip = GetRandomClip();
@@ -46,8 +58,13 @@ public class FootSteps : MonoBehaviour
             case 2:
              default:
                 return mudClips[UnityEngine.Random.Range(0, mudClips.Length)];
-            
-                
+            case 3:
+                return dirtClips[UnityEngine.Random.Range(0, mudClips.Length)];
+            case 4:
+                return floorClips[UnityEngine.Random.Range(0, mudClips.Length)];
+
+
+
         }
 
         }
