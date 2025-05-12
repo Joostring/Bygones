@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -7,47 +8,115 @@ public class FlashBackEvent : MonoBehaviour
 {
     [SerializeField] PostProcessLayer postProcessLayer;
     [SerializeField] LowSanityTimer lowSanityTimer;
+    [SerializeField] PlayerMovement playerMovement;
     [SerializeField] LayerMask defaultLayer;
     [SerializeField] LayerMask greyLayer;
-    [SerializeField] GameObject cubeTrigger;
+    [SerializeField] GameObject flashbackPanel;
+    [SerializeField] TMP_Text flashbackText;
     private bool isFlashBack = false;
-    [SerializeField] float moveTrigger = 0f;
-    [SerializeField] float moveDelay = 0f;
+    [SerializeField] float flashbackTimer = 0f;
+    private TriggerFlashBack currentTriggerFlashback;
+    private int currentTextIndex = 0;
+    private bool waitingForInput = false;
     void Start()
     {
-        
+        if (flashbackPanel != null)
+        {
+            flashbackPanel.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isFlashBack)
+        if (isFlashBack && currentTriggerFlashback != null)
         {
-            isFlashBack = true;
+           
+                flashbackTimer += Time.deltaTime;
+                if (flashbackTimer >= currentTriggerFlashback.textDisplayDuration)
+                {
+                    AdvanceFlashbackText();
+                }
+            
+           
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    AdvanceFlashbackText();
+                }
+            
+        }
+    }
+ 
+    public void StartFlashback(TriggerFlashBack triggerFlashback)
+    {
+        isFlashBack = true;
+        currentTriggerFlashback = triggerFlashback;
+        triggerFlashback.hasTriggerdFlashback = true;
+        playerMovement.SetMovementState(false);
+        currentTextIndex = 0;
+
+        if(postProcessLayer != null && greyLayer != null)
+        {
             postProcessLayer.volumeLayer = greyLayer;
+        }
+
+        if(lowSanityTimer != null)
+        {
             lowSanityTimer.SanityDrainChecker(false);
-            moveTrigger -= moveDelay * Time.deltaTime;
-            if(moveTrigger <= 0)
-            {
-                cubeTrigger.transform.position = new Vector3(0, 0, 0);
-            }
+        }
+        DisplayCurrentText();
+        flashbackTimer = 0f;
+    }
+    public void AdvanceFlashbackText()
+    {
+        currentTextIndex++;
+        if(currentTextIndex < currentTriggerFlashback.flashbackTexts.Count)
+        {
+            DisplayCurrentText();
+            flashbackTimer = 0f;
         }
         else
         {
-            isFlashBack = false;
-            postProcessLayer.volumeLayer = defaultLayer;
-            lowSanityTimer.SanityDrainChecker(true);
-
+            EndFlashBack();
         }
     }
- 
 
-    public void SetFlashBackEvent(bool state)
+    public void DisplayCurrentText()
     {
-        isFlashBack = state;
+        if (flashbackPanel != null && flashbackText != null && currentTextIndex < currentTriggerFlashback.flashbackTexts.Count)
+        {
+            flashbackText.text = currentTriggerFlashback.flashbackTexts[currentTextIndex];
+            flashbackPanel.SetActive(true);
+          
+        }
+        else
+        {
+            EndFlashBack();
+        }
     }
+    public void EndFlashBack()
+    {
+        if (!isFlashBack)
+        {
+            return;
+        }
 
- 
-
-
+        isFlashBack = false;
+        playerMovement.SetMovementState(true);
+        currentTextIndex = 0;
+      
+        if(postProcessLayer != null && defaultLayer != null)
+        {
+            postProcessLayer.volumeLayer = defaultLayer;
+        }
+        if(lowSanityTimer != null)
+        {
+            lowSanityTimer.SanityDrainChecker(true);
+        }
+        if(flashbackPanel != null)
+        {
+            flashbackPanel.SetActive(false);
+        }
+        currentTriggerFlashback = null;
+    }
 }

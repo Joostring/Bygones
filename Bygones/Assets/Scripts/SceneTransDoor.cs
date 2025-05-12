@@ -1,3 +1,5 @@
+// Author: Jonas Östring
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,11 +23,6 @@ public class SceneTransDoor : MonoBehaviour
     [SerializeField] private float openDelay = 0f;
    
 
-    //private void Awake()
-    //{
-    //    crossfade = GetComponent<Crossfade>();
-    //    inspectSystem = GetComponent<InspectSystem>();
-    //}
 
     private void Update()
     {

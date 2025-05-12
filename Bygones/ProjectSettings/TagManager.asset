@@ -14,6 +14,10 @@ TagManager:
   - Lit
   - Laugh1
   - Laugh2
+  - Piano
+  - Vase
+  - Thunder
+  - Whisper
   layers:
   - Default
   - TransparentFX

@@ -1,3 +1,5 @@
+// Author: Jonas Östring
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +8,7 @@ public class Flashlight_Basement : MonoBehaviour
 {
     [Tooltip("The light of the flashlight")]
     [SerializeField] GameObject LightSource;
-    private bool flashTimer = true;
-
-    //[SerializeField] private InspectSystem inspectSystem;
-
+    private bool flashTimer = true;  
     private bool flashLightEnabled = false;
     void Start()
     {

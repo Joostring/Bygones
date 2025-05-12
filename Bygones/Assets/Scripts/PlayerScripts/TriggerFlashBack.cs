@@ -1,30 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TriggerFlashBack : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] FlashBackEvent flashBackEvent;
-    [SerializeField] PlayerMovement playerMovement;
+    [TextArea(10, 10)][SerializeField] public List<string> flashbackTexts = new List<string>();
+    [SerializeField] public float textDisplayDuration = 0f;
+    public bool hasTriggerdFlashback = false;
+ 
+    
+    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && flashBackEvent != null)
+        if (other.CompareTag("Player") && flashBackEvent != null && !hasTriggerdFlashback)
         {
-            flashBackEvent.SetFlashBackEvent(true);
-            playerMovement.SetStopMovement(true);
-            //playerMovement.SetMovementState(false);
-            //playerMovement.SetReversedMovementState(false);
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player") && flashBackEvent != null)
-        {
-            flashBackEvent.SetFlashBackEvent(false);
-            playerMovement.SetStopMovement(false);
-            //playerMovement.SetMovementState(true);
-            //playerMovement.SetReversedMovementState(true);
+            flashBackEvent.StartFlashback(this);
         }
     }
 }

@@ -8,6 +8,8 @@ public class GateController : MonoBehaviour
     //private bool doorOpen = false;
     private bool gateOpen = false;
 
+    [SerializeField] private InspectSystem inspectSystem;
+
     [Header("Put the name of the key here")]
     [SerializeField] private string nameOfKeyForGate;
 
@@ -45,7 +47,7 @@ public class GateController : MonoBehaviour
 
     public void PlayAnimation()
     {
-        if (!gateOpen && !pauseInteraction)
+        if (!gateOpen && !pauseInteraction/* && inspectSystem.HasItem("Gatekey_Inspect")*/)
         {
             gateAnim.Play(OpenAnimationName, 0, 0.0f);
             gateOpen = true;

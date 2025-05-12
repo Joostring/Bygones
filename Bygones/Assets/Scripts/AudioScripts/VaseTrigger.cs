@@ -6,18 +6,24 @@ using UnityEngine;
 
 public class VaseTrigger : MonoBehaviour
 {
-    [SerializeField] private AudioSource vase;
+    [SerializeField] private GameObject vaseObject;
+
+    private void Start()
+    {
+        vaseObject.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        vase = GameObject.Find("BreakingVase").GetComponent<AudioSource>();
-
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-           
-            Debug.Log("Collision");
-            vase.Play();
-            Destroy(this);
+
+            if (vaseObject.CompareTag("Vase") && vaseObject != null)
+            {
+                vaseObject.SetActive(true);
+
+            }
+
         }
     }
 }

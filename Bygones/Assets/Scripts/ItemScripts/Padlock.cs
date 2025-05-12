@@ -1,3 +1,5 @@
+// Author: Jonas Östring
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +12,9 @@ public class Padlock : MonoBehaviour
     [SerializeField] private InspectSystem inspectSystem;
     [SerializeField] private BoxController boxController;
     [SerializeField] private GameObject padlock;
-    //[SerializeField] private InputfieldPadlock inputfieldPadlock;
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private GameObject inputFieldObject;
+    [SerializeField] private string correctCode = "9024";
 
     private string input;
     public bool boxOpen;
@@ -22,6 +24,7 @@ public class Padlock : MonoBehaviour
     {
         lockText.SetActive(false);
         inputFieldObject.SetActive(false);
+        inputField.onEndEdit.AddListener(SubmitCode);
     }
 
 
@@ -41,6 +44,7 @@ public class Padlock : MonoBehaviour
             inReach = false;
             lockText.SetActive(false);
             inputFieldObject.SetActive(false);
+            inputField.DeactivateInputField();
         }
     }
 
@@ -49,36 +53,36 @@ public class Padlock : MonoBehaviour
         if (!boxOpen && inReach && Input.GetKeyDown(enterCodeKey))
         {
             inputFieldObject.SetActive(true);
+            inputField.ActivateInputField();
 
-            if(inputField.text == "9024") 
+        }
+        
+        
+    }
+
+    private void SubmitCode(string enteredCode)
+    {
+        if (inReach && inputFieldObject.activeSelf)
+        {
+            if (enteredCode == correctCode)
             {
                 boxOpen = true;
                 padlock.SetActive(false);
                 boxController.PlayAnimation();
                 inputFieldObject.SetActive(false);
+                inputField.text = "";
+                inputField.DeactivateInputField();
                 lockText.SetActive(false);
+                Debug.Log("Padlock opened");
             }
             else
             {
-                boxOpen = false;
-                padlock.SetActive(true);
-                inputFieldObject.SetActive(true);
+                Debug.Log("Incorrect code");
+                inputField.text = "";
+                inputField.ActivateInputField();
             }
-            
-
         }
-        
     }
-    
-
-    public void CheckInput(string s)
-    {
-        input = s;
-        Debug.Log(input);
-        //if (inputField.text == "9024")
-        //{
-        //    Debug.Log("Code correct");
-        //}
-    }
+     
 
 }

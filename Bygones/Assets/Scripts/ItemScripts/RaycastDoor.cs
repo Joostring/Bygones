@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class RaycastDoor : MonoBehaviour
 {
-    [SerializeField] private int rayLenght = 5;
+    [SerializeField] private int rayLenght = 2;
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private string excludeLayerName = null;
     private InspectSystem inspectsystem;
@@ -24,6 +24,8 @@ public class RaycastDoor : MonoBehaviour
 
     private const string openTag = "Open";
     private const string lockedTag = "Locked";
+
+    [SerializeField] private ProgressSystem progressSystem;
 
     private void Start()
     {
@@ -54,6 +56,7 @@ public class RaycastDoor : MonoBehaviour
                 {
                     string keyRequired = D_currentDoor.GetRequiredKey();
 
+
                     if (Input.GetKeyDown(openDoorKey))
                     {
                         if (inspectsystem.HasItem(keyRequired))
@@ -64,6 +67,16 @@ public class RaycastDoor : MonoBehaviour
                         else
                         {
                             Debug.Log("Du behöver nyckeln: " + keyRequired);
+
+                            ProgressNoteData noteData = D_currentDoor.GetComponentInParent<ProgressNoteData>();
+                            if (noteData != null && !noteData.noteAlreadyAdded)
+                            {
+                                foreach (string line in noteData.noteLines)
+                                {
+                                    progressSystem.AddNote(line);
+                                    noteData.noteAlreadyAdded = true;
+                                }
+                            }
                         }
                     }
                 }
@@ -82,6 +95,16 @@ public class RaycastDoor : MonoBehaviour
                         else
                         {
                             Debug.Log("Du behöver nyckeln: " + keyRequired);
+
+                            ProgressNoteData noteData = S_currentDoor.GetComponentInParent<ProgressNoteData>();
+                            if (noteData != null && !noteData.noteAlreadyAdded)
+                            {
+                                foreach (string line in noteData.noteLines)
+                                {
+                                    progressSystem.AddNote(line);
+                                    noteData.noteAlreadyAdded = true;
+                                }
+                            }
                         }
                     }
                 }

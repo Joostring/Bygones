@@ -96,4 +96,9 @@ public class LowSanityTimer : MonoBehaviour
     {
         sanityProcentage -= value;
     }
+
+    public float GetSanity()
+    {
+        return sanityProcentage;
+    }
 }

@@ -18,10 +18,10 @@ public class PlayerLook : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TogglePause();
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    TogglePause();
+        //}
 
         if (isPaused) return; // Stop camera movement when paused
 

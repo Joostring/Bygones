@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class PianoTrigger : MonoBehaviour
 {
-    [SerializeField] private AudioSource piano;
+    [SerializeField] private GameObject pianoObject;
+
+    private void Start()
+    {
+        pianoObject.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            piano = GameObject.Find("Piano").GetComponent<AudioSource>();
-            piano.Play();
-            Destroy(this);
+
+            if (pianoObject.CompareTag("Piano") && pianoObject != null)
+            {
+                pianoObject.SetActive(true);
+
+            }
+
         }
     }
 }
