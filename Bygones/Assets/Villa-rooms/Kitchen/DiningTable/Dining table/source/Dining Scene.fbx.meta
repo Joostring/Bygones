@@ -3,7 +3,27 @@ guid: 3dfd498ea3c47f04ca7cbc7887ca5bb6
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Candle
+    second: {fileID: 2100000, guid: 0e9742e9493ca8646852318c1a24f749, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chair
+    second: {fileID: 2100000, guid: 770ad71aab74e0443a48671a4ac90bc3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PlateAndCutlery
+    second: {fileID: 2100000, guid: 0ea1163c118d2854cae24845e9c11a96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Table
+    second: {fileID: 2100000, guid: 4681cfadac539b541ac125091403f322, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
