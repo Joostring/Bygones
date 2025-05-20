@@ -26,7 +26,7 @@ public class SceneTransDoor : MonoBehaviour
 
     private void Update()
     {
-        if (inspectSystem.HasItem("Key_Front_Inspect"))
+        if (inspectSystem.HasItem("Key_Basement_Inspect"))
         {
             isOpen = true;
         }

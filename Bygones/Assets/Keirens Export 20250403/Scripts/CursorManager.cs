@@ -45,25 +45,25 @@ using UnityEngine;
                 {
                     img.rectTransform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     SetCursorToPickup();
-                Debug.Log("HandCursor");
+                //Debug.Log("HandCursor");
             }
                 else if (hit.collider.CompareTag("Locked"))
                 {
                     img.rectTransform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     SetCursorToLocked();
-                Debug.Log("LockedCursor");
+                //Debug.Log("LockedCursor");
             }
                 else if (hit.collider.CompareTag("Open"))
                 {
                     img.rectTransform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     SetCursorToDoor();
-                Debug.Log("DoorCursor");
+                //Debug.Log("DoorCursor");
             }
                 else
                 {
                     img.rectTransform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
                     SetCursorToDefault();
-                Debug.Log("DefaultCursor");
+                //Debug.Log("DefaultCursor");
                 }
             }
             else

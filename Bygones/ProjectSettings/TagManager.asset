@@ -18,6 +18,10 @@ TagManager:
   - Vase
   - Thunder
   - Whisper
+  - Turned
+  - Not Turned
+  - Up
+  - Down
   layers:
   - Default
   - TransparentFX

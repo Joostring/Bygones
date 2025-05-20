@@ -1,28 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
-using UnityEngine.Rendering.Universal;
 
 public class TriggerItemFlashBack : MonoBehaviour
 {
     [SerializeField] MoveObjectUp moveUp;
+    [SerializeField] TriggerFlashBack triggerFlashBack;
     public Transform interactorSource;
     public float interactRange = 3f;
     public LayerMask interactableLayer;
+    public bool hasTriggerdFlashback = false;
+
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+
+        if (!hasTriggerdFlashback)
         {
             Ray ray = new Ray(interactorSource.position, interactorSource.forward);
             RaycastHit hitInfo;
 
-            if(Physics.Raycast(ray, out hitInfo, interactRange, interactableLayer))
+            if (Physics.Raycast(ray, out hitInfo, interactRange, interactableLayer))
             {
-                moveUp.StartRise();
+                if (Input.GetKeyDown(KeyCode.E) && hitInfo.collider.gameObject == gameObject)
+                {
+                    moveUp.StartRise();
+                    triggerFlashBack.enabled = true;
+                    hasTriggerdFlashback = true;
+                }
             }
         }
     }
+
 }

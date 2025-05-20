@@ -16,6 +16,8 @@ public class RaycastDoor : MonoBehaviour
     private SingleDoorController singleDoorRay;
     private DoubleDoorController doubleDoorRay;
     private GateController gateController;
+    private PuzzleDoorController puzzleDoorController;
+    private BasementDoorController basementDoorController;
 
     [SerializeField] private KeyCode openDoorKey = KeyCode.E;
     [SerializeField] private Image crosshair = null;
@@ -33,6 +35,8 @@ public class RaycastDoor : MonoBehaviour
         singleDoorRay = FindObjectOfType<SingleDoorController>();
         doubleDoorRay = FindObjectOfType<DoubleDoorController>();
         gateController = FindObjectOfType<GateController>();
+        puzzleDoorController = FindObjectOfType<PuzzleDoorController>();
+        basementDoorController = FindObjectOfType<BasementDoorController>();
     }
 
     
@@ -51,6 +55,9 @@ public class RaycastDoor : MonoBehaviour
                 DoubleDoorController D_currentDoor = hit.collider.GetComponent<DoubleDoorController>();
                 SingleDoorController S_currentDoor = hit.collider.GetComponent<SingleDoorController>();
                 GateController currentGate = hit.collider.GetComponent<GateController>();
+                PuzzleDoorController P_currentDoor = hit.collider.GetComponent<PuzzleDoorController>();
+                BasementDoorController B_currentDoor = hit.collider.GetComponent<BasementDoorController>();
+
 
                 if (D_currentDoor != null)
                 {
@@ -109,7 +116,62 @@ public class RaycastDoor : MonoBehaviour
                     }
                 }
 
-                if(currentGate != null)
+                if(P_currentDoor != null)
+                {
+                    if (Input.GetKey(openDoorKey))
+                    {
+                        Debug.Log($"Trying to interact with puzzle door. P_currentDoor is {(P_currentDoor == null ? "null" : "not null")}");
+                        if (P_currentDoor.UnlockDoor())
+                        {
+                            Debug.Log("Puzzle door is unlocked. Playing animation.");
+                            P_currentDoor.PlayAnimation();
+                        }
+                        else
+                        {
+                            Debug.Log("Puzzle door is still locked.");
+                            ProgressNoteData noteData = P_currentDoor.GetComponentInParent<ProgressNoteData>();
+                            if (noteData != null && !noteData.noteAlreadyAdded)
+                            {
+                                foreach (string line in noteData.noteLines)
+                                {
+                                    progressSystem.AddNote(line);
+                                    noteData.noteAlreadyAdded = true;
+                                }
+                                P_currentDoor.EnablePaintingInteraction();
+                            }
+                        }
+                    }
+                   
+                }
+                if (B_currentDoor != null)
+                {
+                    if (Input.GetKey(openDoorKey))
+                    {
+                        Debug.Log($"Trying to interact with puzzle door. B_currentDoor is {(B_currentDoor == null ? "null" : "not null")}");
+                        if (B_currentDoor.UnlockDoor())
+                        {
+                            Debug.Log("Basementdoor is unlocked. Playing animation.");
+                            B_currentDoor.PlayAnimation();
+                        }
+                        else
+                        {
+                            Debug.Log("Basementdoor is still locked.");
+                            ProgressNoteData noteData = B_currentDoor.GetComponentInParent<ProgressNoteData>();
+                            if (noteData != null && !noteData.noteAlreadyAdded)
+                            {
+                                foreach (string line in noteData.noteLines)
+                                {
+                                    progressSystem.AddNote(line);
+                                    noteData.noteAlreadyAdded = true;
+                                }
+                                B_currentDoor.EnableLeverInteraction();
+                            }
+                        }
+                    }
+
+                }
+
+                if (currentGate != null)
                 {
                     string keyRequired = currentGate.GetRequiredKey();
 
@@ -128,6 +190,9 @@ public class RaycastDoor : MonoBehaviour
                 DoubleDoorController D_currentDoor = hit.collider.GetComponent<DoubleDoorController>();
                 SingleDoorController S_currentDoor = hit.collider.GetComponent<SingleDoorController>();
                 GateController currentGate = hit.collider.GetComponent<GateController>();
+                PuzzleDoorController P_currentDoor = hit.collider.GetComponent<PuzzleDoorController>();
+                BasementDoorController B_currentDoor = hit.collider.GetComponent<BasementDoorController>();
+
 
                 if (Input.GetKeyDown(openDoorKey))
                 {
@@ -142,6 +207,14 @@ public class RaycastDoor : MonoBehaviour
                     else if(currentGate != null)
                     {
                         currentGate.PlayAnimation();
+                    }
+                    else if (P_currentDoor != null)
+                    {
+                        P_currentDoor.PlayAnimation();
+                    }
+                    else if (B_currentDoor != null)
+                    {
+                        B_currentDoor.PlayAnimation();
                     }
                 }
             }

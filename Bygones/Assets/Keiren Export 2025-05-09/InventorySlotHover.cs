@@ -51,6 +51,7 @@ public class InventorySlotHover : MonoBehaviour, IPointerEnterHandler, IPointerE
             case "Key_Gate_Inspect": return "Gate key";
             case "Matches_Inspect": return "Matchbox";
             case "Newspaper_Inspect": return "Newspaper article";
+            case "Key_Basement_Inspect": return "Big old key";
             default: return null;;
         }
     }

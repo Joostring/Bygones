@@ -10,7 +10,7 @@ public class LowSanityTimer : MonoBehaviour
     [SerializeField] PostProcessVolume sanityVolume;
     [SerializeField] float sanityDrainRate = 5f;
 
-    bool isSanityDraing = true;
+    public bool isSanityDraing = true;
     bool hasTriggedFade = false;
     [SerializeField] Fadein[] itemsToFadeIn;
     [SerializeField] PlayerMovement playermovement;

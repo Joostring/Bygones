@@ -22,6 +22,7 @@ public class InspectSystem : MonoBehaviour
     public GameObject keyGatePrefab;
     public GameObject matchesPrefab;
     public GameObject newspaperPrefab;
+    public GameObject keyBasementPrefab;
 
     public GameObject Note1Prefab;
     public GameObject Note2Prefab;
@@ -163,6 +164,7 @@ public class InspectSystem : MonoBehaviour
             case "Key_Masterbedroom_Inspect": return keyMasterbedroomPrefab;
             case "Matches_Inspect": return matchesPrefab;
             case "Newspaper_Inspect": return newspaperPrefab;
+            case "Key_Basement_Inspect": return keyBasementPrefab;
             default: return null;
         }
     }
@@ -576,6 +578,9 @@ public class InspectSystem : MonoBehaviour
             case "Newspaper_Inspect":
                 InspectFromInventory (itemName);
                 break;
+            case "Key_Basement_Inspect":
+                InspectFromInventory(itemName);
+                break;
                     
             default:
                 Debug.Log("");
@@ -632,6 +637,8 @@ public class InspectSystem : MonoBehaviour
                 return Matches_Icon;
             case "Newspaper_Inspect":
                 return Note_Icon;
+            case "Key_Basement_Inspect":
+                return Key_Icon;
             default:
                 return defaultIcon; 
         }
@@ -739,6 +746,26 @@ public class InspectSystem : MonoBehaviour
                 readUI.SetActive(true);
                 minZoom = 0.8f;
                 maxZoom = 1.2f;
+                break;
+            case "Pills1F_Inspect":
+                uiElements[14].SetActive(true);               
+                minZoom = 0.5f;
+                maxZoom = 0.5f;
+                break;
+            case "Pills2F_Inspect":
+                uiElements[14].SetActive(true);                
+                minZoom = 0.5f;
+                maxZoom = 0.5f;
+                break;
+            case "PillsKitchen_Inspect":
+                uiElements[14].SetActive(true);            
+                minZoom = 0.5f;
+                maxZoom = 0.5f;
+                break;
+            case "Key_Basement_Inspect":
+                uiElements[15].SetActive(true);
+                minZoom = 0.5f;
+                maxZoom = 0.7f;
                 break;
 
             default:
