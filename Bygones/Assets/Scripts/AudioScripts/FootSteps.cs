@@ -16,15 +16,16 @@ public class FootSteps : MonoBehaviour
     [SerializeField]
     private AudioClip[] floorClips;
     
-    
-
+  
     private AudioSource audioSource;
     private TerrainDetector terrainDetector;
+    private PlayerMovement playerMovement;
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         terrainDetector = new TerrainDetector();
+        playerMovement = GetComponent<PlayerMovement>();
         
        
     }
@@ -47,25 +48,32 @@ public class FootSteps : MonoBehaviour
     {
         int terrainTextureIndex = terrainDetector.GetActiveTerrainTextureIdx(transform.position);
 
-        switch (terrainTextureIndex)
+        if (playerMovement.isPlayerMoving == true)
         {
-            case 0:
-                //return stoneClips[UnityEngine.Random.Range(0, stoneClips.Length)];
-                return grassClips[UnityEngine.Random.Range(0, grassClips.Length)];
-            case 1:
-                //return mudClips[UnityEngine.Random.Range(0, mudClips.Length)];
-                return stoneClips[UnityEngine.Random.Range(0, stoneClips.Length)];
-            case 2:
-             default:
-                return mudClips[UnityEngine.Random.Range(0, mudClips.Length)];
-            case 3:
-                return dirtClips[UnityEngine.Random.Range(0, mudClips.Length)];
-            case 4:
-                return floorClips[UnityEngine.Random.Range(0, mudClips.Length)];
+            switch (terrainTextureIndex)
+            {
+                case 0:
+                    //return stoneClips[UnityEngine.Random.Range(0, stoneClips.Length)];
+                    return grassClips[UnityEngine.Random.Range(0, grassClips.Length)];
+                case 1:
+                    //return mudClips[UnityEngine.Random.Range(0, mudClips.Length)];
+                    return stoneClips[UnityEngine.Random.Range(0, stoneClips.Length)];
+                case 2:
+                default:
+                    return mudClips[UnityEngine.Random.Range(0, mudClips.Length)];
+                case 3:
+                    return dirtClips[UnityEngine.Random.Range(0, mudClips.Length)];
+                case 4:
+                    return floorClips[UnityEngine.Random.Range(0, mudClips.Length)];
 
 
 
+            }
+        }
+        else
+        {
+            return null;
         }
 
-        }
+    }
     }

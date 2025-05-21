@@ -15,7 +15,7 @@ public class ChangeSceneAfterXTime : MonoBehaviour
 
     public IEnumerator WaitTransitionScene()
     {
-        yield return new WaitForSeconds(83);
+        yield return new WaitForSeconds(70);
         SceneManager.LoadScene(2);
 
     }

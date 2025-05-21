@@ -12,6 +12,7 @@ public class FlashBackEvent : MonoBehaviour
     [SerializeField] LayerMask greyLayer;
     [SerializeField] GameObject flashbackPanel;
     [SerializeField] public TMP_Text flashbackText;
+    
     private bool isFlashBack = false;
     [SerializeField] float flashbackTimer = 0f;
     private TriggerFlashBack currentTriggerFlashback;
@@ -53,6 +54,7 @@ public class FlashBackEvent : MonoBehaviour
         currentTriggerFlashback = triggerFlashback;
         triggerFlashback.hasTriggerdFlashback = true;
         playerMovement.SetMovementState(false);
+        
         currentTextIndex = 0;
 
         if (postProcessLayer != null && greyLayer != null)

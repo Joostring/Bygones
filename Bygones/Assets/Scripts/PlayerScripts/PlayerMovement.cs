@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
     public float GravityStrength;
     public float WalkSpeed;
     public float RunSpeed;
-    public float JumpStrength;
 
     public Animator animator;
 
@@ -16,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 CurrentForceVelocity;
 
-    private bool isPlayerMoving = true;
+    public bool isPlayerMoving = true;
     private bool isReversedMoving = false;
     private bool isFlashbackOn = false;
 
@@ -67,12 +66,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 CurrentForceVelocity.y = -2f;
 
-                if (Input.GetKey(KeyCode.Space))
-
-                {
-
-                    CurrentForceVelocity.y = JumpStrength;
-                }
+                
             }
             else
             {
@@ -121,12 +115,7 @@ if (Physics.Raycast(groundCheckRay, 1.1f))
 {
     CurrentForceVelocity.y = -2f;
 
-    if (Input.GetKey(KeyCode.Space))
-
-    {
-
-        CurrentForceVelocity.y = JumpStrength;
-    }
+    
 }
 else
 {
@@ -145,6 +134,7 @@ controller.Move(CurrentForceVelocity * Time.deltaTime);
     public void SetMovementState(bool value)
     {
         isPlayerMoving = value;
+        
     }
     public void SetReversedMovementState(bool value)
     {

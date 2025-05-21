@@ -1870,7 +1870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb0b38b48952fbb40b66be2bf0803b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 25
+  time: 23
   textobject: {fileID: 1706030137}
 --- !u!95 &1706030140
 Animator:
@@ -2262,13 +2262,13 @@ RectTransform:
   - {fileID: 703962207}
   - {fileID: 104032221}
   - {fileID: 790814266}
-  - {fileID: 1484105225}
-  - {fileID: 1749437856}
-  - {fileID: 1895844522}
   - {fileID: 405366199}
   - {fileID: 339557235}
   - {fileID: 157098611}
   - {fileID: 1142863081}
+  - {fileID: 1484105225}
+  - {fileID: 1749437856}
+  - {fileID: 1895844522}
   - {fileID: 1929093719}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
