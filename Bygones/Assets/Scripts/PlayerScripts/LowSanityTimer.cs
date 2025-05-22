@@ -7,7 +7,7 @@ using UnityEngine.Rendering.PostProcessing;
 public class LowSanityTimer : MonoBehaviour
 {
     [SerializeField] public float sanityProcentage = 100f;
-    [SerializeField] PostProcessVolume sanityVolume;
+    [SerializeField] public PostProcessVolume sanityVolume;
     [SerializeField] float sanityDrainRate = 5f;
 
     public bool isSanityDraing = true;
@@ -60,17 +60,17 @@ public class LowSanityTimer : MonoBehaviour
            
         }
 
-        if (sanityProcentage <= 25f)
-        {
-            playermovement.SetReversedMovementState(true);
-            playermovement.SetMovementState(false);
+        //if (sanityProcentage <= 25f)
+        //{
+        //    playermovement.SetReversedMovementState(true);
+        //    playermovement.SetMovementState(false);
             
-        }
-        else
-        {
-            playermovement.SetReversedMovementState(false);
-            playermovement.SetMovementState(true);
-        }
+        //}
+        //else
+        //{
+        //    playermovement.SetReversedMovementState(false);
+        //    playermovement.SetMovementState(true);
+        //}
     }
     public void SanityDrainChecker(bool state)
     {

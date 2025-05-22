@@ -177,8 +177,8 @@ GameObject:
   - component: {fileID: 8881498299341331623}
   - component: {fileID: 895657567479433610}
   m_Layer: 6
-  m_Name: Note_2_Inspect
-  m_TagString: Pickable
+  m_Name: Note_3_Inspect
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

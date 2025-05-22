@@ -22,6 +22,7 @@ TagManager:
   - Not Turned
   - Up
   - Down
+  - Object
   layers:
   - Default
   - TransparentFX

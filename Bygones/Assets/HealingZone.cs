@@ -18,6 +18,9 @@ public class HealingZone : MonoBehaviour
                 sanity.sanityProcentage += sanityGainRate * Time.deltaTime;
                 sanity.sanityProcentage = Mathf.Clamp(sanity.sanityProcentage, 0, 100);
 
+                float weight = Mathf.InverseLerp(100, 0, sanity.sanityProcentage);
+                sanity.sanityVolume.weight = weight;
+
             }
 
         }

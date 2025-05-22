@@ -2455,6 +2455,7 @@ MonoBehaviour:
   keyGatePrefab: {fileID: 0}
   matchesPrefab: {fileID: 0}
   newspaperPrefab: {fileID: 0}
+  keyBasementPrefab: {fileID: 0}
   Note1Prefab: {fileID: 1303621886084018015, guid: ee1788a8b5149674b9fcbdb138ff6cb7, type: 3}
   Note2Prefab: {fileID: 0}
   Note3Prefab: {fileID: 0}
@@ -3529,6 +3530,10 @@ PrefabInstance:
     - target: {fileID: 1115644768936513444, guid: bce67722754378e41aa73a946406cc04, type: 3}
       propertyPath: m_Name
       value: PostProcessingLowSanity
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115644768936513444, guid: bce67722754378e41aa73a946406cc04, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4123436169484229759, guid: bce67722754378e41aa73a946406cc04, type: 3}
       propertyPath: m_LocalPosition.x

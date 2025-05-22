@@ -9,6 +9,7 @@ public class DoubleDoorController : MonoBehaviour
     private Animator doorAnim;
     //private bool doorOpen = false;
     private bool d_doorOpen = false;
+    
 
     [Header("Put the name of the key here")]
     [SerializeField] private string nameOfKeyForDoor;
@@ -53,6 +54,7 @@ public class DoubleDoorController : MonoBehaviour
             d_doorOpen = true;
             StartCoroutine(PauseDoorInteraction());
             DoubleOpen.PlayDelayed(openDelay);
+            
         }
         else if (d_doorOpen && !pauseInteraction)
         {

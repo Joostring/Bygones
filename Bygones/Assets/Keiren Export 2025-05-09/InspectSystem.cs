@@ -23,6 +23,7 @@ public class InspectSystem : MonoBehaviour
     public GameObject matchesPrefab;
     public GameObject newspaperPrefab;
     public GameObject keyBasementPrefab;
+    public GameObject diaryPrefab;  
 
     public GameObject Note1Prefab;
     public GameObject Note2Prefab;
@@ -165,6 +166,10 @@ public class InspectSystem : MonoBehaviour
             case "Matches_Inspect": return matchesPrefab;
             case "Newspaper_Inspect": return newspaperPrefab;
             case "Key_Basement_Inspect": return keyBasementPrefab;
+            case "Note_2_Inspect":  return Note2Prefab;
+            case "Note_3_Inspect": return Note3Prefab;
+            case "Note_4_Inspect": return Note4Prefab;
+            case "Note_Diary_Inspect": return diaryPrefab;
             default: return null;
         }
     }
@@ -236,6 +241,17 @@ public class InspectSystem : MonoBehaviour
                 if (objectToInspect != null) // PROGRESS NOTES ADDED WHEN INSPECTING AN ITEM 
                 {
                     ProgressNoteData noteData = objectToInspect.GetComponent<ProgressNoteData>();
+                    //if (noteData != null) // Check if the component exists
+                    //{
+                    //    // Call the new method on ProgressNoteData.
+                    //    // The noteAlreadyAdded check and adding notes to ProgressSystem.Instance
+                    //    // are now handled inside noteData.AddNotesToSystem().
+                    //    noteData.AddNotesToSystem();
+                    //}
+                    //else
+                    //{
+                    //    Debug.LogWarning("No ProgressNoteData found on the parent of electricalBox.");
+                    //}
                     if (noteData != null && !noteData.noteAlreadyAdded)
                     {
                         foreach (string line in noteData.noteLines)
@@ -581,7 +597,19 @@ public class InspectSystem : MonoBehaviour
             case "Key_Basement_Inspect":
                 InspectFromInventory(itemName);
                 break;
-                    
+            case "Note_2_Inspect":
+                InspectFromInventory(itemName);
+                break;
+            case "Note_3_Inspect":
+                InspectFromInventory(itemName);
+                break;
+            case "Note_4_Inspect":
+                InspectFromInventory(itemName);
+                break;
+            case "Note_Diary_Inspect":
+                InspectFromInventory(itemName);
+                break;
+
             default:
                 Debug.Log("");
                 break;
@@ -639,6 +667,14 @@ public class InspectSystem : MonoBehaviour
                 return Note_Icon;
             case "Key_Basement_Inspect":
                 return Key_Icon;
+            case "Note_2_Inspect":
+                return Note_Icon;
+            case "Note_3_Inspect":
+                return Note_Icon;
+            case "Note_4_Inspect":
+                return Note_Icon;
+            case "Note_Diary_Inspect":
+                return Note_Icon;
             default:
                 return defaultIcon; 
         }
@@ -766,6 +802,30 @@ public class InspectSystem : MonoBehaviour
                 uiElements[15].SetActive(true);
                 minZoom = 0.5f;
                 maxZoom = 0.7f;
+                break;
+            case "Note_2_Inspect":
+                uiElements[16].SetActive(true);
+                readUI.SetActive(true);
+                minZoom = 0.7f;
+                maxZoom = 1.0f;
+                break;
+            case "Note_3_Inspect":
+                uiElements[17].SetActive(true);
+                readUI.SetActive(true);
+                minZoom = 0.7f;
+                maxZoom = 1.0f;
+                break;
+            case "Note_4_Inspect":
+                uiElements[18].SetActive(true);
+                readUI.SetActive(true);
+                minZoom = 0.7f;
+                maxZoom = 1.0f;
+                break;
+            case "Note_Diary_Inspect":
+                uiElements[19].SetActive(true);
+                readUI.SetActive(true);
+                minZoom = 0.7f;
+                maxZoom = 1.0f;
                 break;
 
             default:

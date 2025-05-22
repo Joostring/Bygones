@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7096074621964108735
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7663421
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.76634216
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7663421
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.288
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.075
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.218
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8320020217713983462, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.472
+      objectReference: {fileID: 0}
+    - target: {fileID: -8320020217713983462, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.152
+      objectReference: {fileID: 0}
+    - target: {fileID: -8320020217713983462, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.16
+      objectReference: {fileID: 0}
+    - target: {fileID: -8320020217713983462, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8320020217713983462, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8320020217713983462, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8320020217713983462, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8320020217713983462, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -6290461219102623310, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bea702d4ba41f75488bdb5b8715d95b9, type: 2}
+    - target: {fileID: -5264143026708804065, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bea702d4ba41f75488bdb5b8715d95b9, type: 2}
+    - target: {fileID: -4345945775202040651, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: -4345945775202040651, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.96
+      objectReference: {fileID: 0}
+    - target: {fileID: -4345945775202040651, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.23
+      objectReference: {fileID: 0}
+    - target: {fileID: -4345945775202040651, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4345945775202040651, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4345945775202040651, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4345945775202040651, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4345945775202040651, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_Name
+      value: Diary_Inspect
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2845928869717557593, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2845928869717557593, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.253
+      objectReference: {fileID: 0}
+    - target: {fileID: 2845928869717557593, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267316881174691618, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bea702d4ba41f75488bdb5b8715d95b9, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 3681738205318028287, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+    - {fileID: -6856639625065243892, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+    - {fileID: 2835813925003557743, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+    - {fileID: 6860893355558530637, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+    - {fileID: -1818567771883106800, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+    - {fileID: 7959310350636632288, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+    - {fileID: 8210177017023736765, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3030382881562112824}
+  m_SourcePrefab: {fileID: 100100000, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+--- !u!1 &7979036672762904302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dd854c4d5033ce14fa619b78362e12ea, type: 3}
+  m_PrefabInstance: {fileID: 7096074621964108735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3030382881562112824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7979036672762904302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14ee4583aa31bb49be13fd4c7d57166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteText: "Dear diary, it\u2019s me, Ollie! \r\n\r\nGuess what? Me and my brother
+    are going to play hide and seek ALL AFTERNOON tomorrow! Mom said we should stay
+    inside since the weather might get bad, but I don\u2019t care! I just want to
+    play with brother. Clouds, stay away! \r\n\r\nBig brother said I\u2019m getting
+    better at hiding (he couldn\u2019t find me in the laundry basket last time hehe).
+    Tomorrow I\u2019m going to win for sure. I\u2019ve already found THE BEST hiding
+    spot! I\u2019m not going to tell you where in case he reads this. I know he likes
+    to peek at what I write. CHEATER! \r\n\r\nI like when we play just the two of
+    us. Sometimes he pretends to be a monster and chases me, but he\u2019s not very
+    scary. He always lets me win at least one round every time. That\u2019s why he\u2019s
+    the best big brother in the whole world! I hope we can play till the sun goes
+    down tomorrow. \r\n\r\nNow I\u2019m gonna go apologise to mom. I accidentally
+    spilled some milk on her earlier and she got mad at me. I\u2019ll also go pick
+    her a flower from the garden so she will smile at me again.\r\n\r\nGoodbye diary!
+    \r\n"
+  noteReaderUI: {fileID: 0}
+  noteTextUI: {fileID: 0}
