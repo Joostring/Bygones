@@ -13,6 +13,8 @@ public class Codelock : MonoBehaviour
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private GameObject inputFieldObject;
     [SerializeField] private string correctCode = "864351";
+    [SerializeField] private GameObject matchesObject;
+    [SerializeField] private GameObject newspaperObject;
 
     private string input;
     public bool boxOpen;
@@ -23,6 +25,9 @@ public class Codelock : MonoBehaviour
         lockText.SetActive(false);
         inputFieldObject.SetActive(false);
         inputField.onEndEdit.AddListener(SubmitCodeToCodelock);
+        matchesObject.SetActive(false);
+        newspaperObject.SetActive(false);
+        
     }
 
 
@@ -64,14 +69,14 @@ public class Codelock : MonoBehaviour
         {
             if (enteredCode == correctCode)
             {
-                boxOpen = true;
-                //padlock.SetActive(false);
-                
+                boxOpen = true;                               
                 inputFieldObject.SetActive(false);
                 inputField.text = "";
                 inputField.DeactivateInputField();
                 lockText.SetActive(false);
-                Debug.Log("Padlock opened");
+                Debug.Log("Codelock opened");
+                matchesObject.SetActive(true);
+                newspaperObject.SetActive(true);
                 boxController.PlayAnimation();
             }
             else

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.Rendering.PostProcessing;
 using TMPro;
+using System.Collections;
 
 /// <summary>
 /// All of this code was designed and coded by Keiren Wall Stewart
@@ -85,7 +86,12 @@ public class InspectSystem : MonoBehaviour
     public PostProcessVolume postProcessVolume;
     private DepthOfField depthOfField;
 
-    
+    private bool isDelayingInspection = false;
+    [SerializeField] private float inspectionStartDelay = 2f;
+    public CameraShake cameraShaker;
+
+
+
     [SerializeField] public List<string> inventory = new List<string>();
 
     
@@ -170,6 +176,7 @@ public class InspectSystem : MonoBehaviour
             case "Note_3_Inspect": return Note3Prefab;
             case "Note_4_Inspect": return Note4Prefab;
             case "Note_Diary_Inspect": return diaryPrefab;
+            case "Note_Final_Inspect": return Note5Prefab;
             default: return null;
         }
     }
@@ -221,7 +228,7 @@ public class InspectSystem : MonoBehaviour
 
         
             isInventoryOpen = false;
-        }
+    }
 
 
 
@@ -235,23 +242,17 @@ public class InspectSystem : MonoBehaviour
 
             if (Physics.Raycast(ray, out hitInfo, InteractRange, interactableLayer))
             {
+                if (cameraShaker != null)
+                {
+                    cameraShaker.TriggerShake();
+                }
                 StartInspectMode(hitInfo.transform);
 
                 // not added by Keiren
                 if (objectToInspect != null) // PROGRESS NOTES ADDED WHEN INSPECTING AN ITEM 
                 {
                     ProgressNoteData noteData = objectToInspect.GetComponent<ProgressNoteData>();
-                    //if (noteData != null) // Check if the component exists
-                    //{
-                    //    // Call the new method on ProgressNoteData.
-                    //    // The noteAlreadyAdded check and adding notes to ProgressSystem.Instance
-                    //    // are now handled inside noteData.AddNotesToSystem().
-                    //    noteData.AddNotesToSystem();
-                    //}
-                    //else
-                    //{
-                    //    Debug.LogWarning("No ProgressNoteData found on the parent of electricalBox.");
-                    //}
+
                     if (noteData != null && !noteData.noteAlreadyAdded)
                     {
                         foreach (string line in noteData.noteLines)
@@ -266,6 +267,51 @@ public class InspectSystem : MonoBehaviour
             }
         }
     }
+
+
+    //void HandleInteraction()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.E) && !isDelayingInspection)
+    //    {
+    //        Ray ray = new Ray(InteractorSource.position, InteractorSource.forward);
+    //        RaycastHit hitInfo;
+
+    //        if (Physics.Raycast(ray, out hitInfo, InteractRange, interactableLayer))
+    //        {
+                
+                
+    //            isDelayingInspection = true;
+    //            if (cameraShaker != null)
+    //            {
+    //                cameraShaker.TriggerShake();
+    //            }
+    //            StartCoroutine(DelayedStartInspectMode(hitInfo.transform));
+    //        }
+    //    }
+    //}
+
+    //IEnumerator DelayedStartInspectMode(Transform target)
+    //{
+    //    yield return new WaitForSeconds(inspectionStartDelay);       
+    //    StartInspectMode(target);
+    //    isDelayingInspection = false;
+
+    //    // Not added by Keiren - Flytta denna logik hit så den sker efter inspektionen startat
+    //    if (objectToInspect != null) // PROGRESS NOTES ADDED WHEN INSPECTING AN ITEM
+    //    {
+    //        ProgressNoteData noteData = objectToInspect.GetComponent<ProgressNoteData>();
+
+    //        if (noteData != null && !noteData.noteAlreadyAdded)
+    //        {
+    //            foreach (string line in noteData.noteLines)
+    //            {
+    //                progressSystem.AddNote(line);
+    //            }
+    //            noteData.noteAlreadyAdded = true;
+    //        }
+    //    }
+    //    //--------
+    //}
 
     void HandleInspection()
     {
@@ -358,6 +404,11 @@ public class InspectSystem : MonoBehaviour
 
       
         UpdateUIForItem(objectToInspect.name, objectToInspect.gameObject);
+
+        //if (playerLook != null)
+        //{
+        //    playerLook.enabled = true; // Återaktivera musstyrningen när inspektionsläget startar
+        //}
     }
 
     void SetCursorVisibility(bool visible)
@@ -609,6 +660,9 @@ public class InspectSystem : MonoBehaviour
             case "Note_Diary_Inspect":
                 InspectFromInventory(itemName);
                 break;
+            case "Note_Final_Inspect":
+                InspectFromInventory(itemName);
+                break;
 
             default:
                 Debug.Log("");
@@ -674,6 +728,8 @@ public class InspectSystem : MonoBehaviour
             case "Note_4_Inspect":
                 return Note_Icon;
             case "Note_Diary_Inspect":
+                return Note_Icon;
+            case "Note_Final_Inspect":
                 return Note_Icon;
             default:
                 return defaultIcon; 
@@ -827,6 +883,13 @@ public class InspectSystem : MonoBehaviour
                 minZoom = 0.7f;
                 maxZoom = 1.0f;
                 break;
+            case "Note_Final_Inspect":
+                uiElements[20].SetActive(true);
+                readUI.SetActive(true);
+                minZoom = 0.7f;
+                maxZoom = 1.0f;
+                break;
+
 
             default:
                 break;

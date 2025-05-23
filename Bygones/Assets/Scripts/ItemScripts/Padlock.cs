@@ -15,6 +15,7 @@ public class Padlock : MonoBehaviour
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private GameObject inputFieldObject;
     [SerializeField] private string correctCode = "9024";
+    [SerializeField] private GameObject key;
 
     private string input;
     public bool boxOpen;
@@ -24,6 +25,7 @@ public class Padlock : MonoBehaviour
     {
         lockText.SetActive(false);
         inputFieldObject.SetActive(false);
+        key.SetActive(false);
         inputField.onEndEdit.AddListener(SubmitCode);
     }
 
@@ -73,6 +75,7 @@ public class Padlock : MonoBehaviour
                 inputField.text = "";
                 inputField.DeactivateInputField();
                 lockText.SetActive(false);
+                key.SetActive(true) ;
                 Debug.Log("Padlock opened");
             }
             else

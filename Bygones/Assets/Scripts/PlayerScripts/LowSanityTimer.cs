@@ -10,17 +10,17 @@ public class LowSanityTimer : MonoBehaviour
     [SerializeField] public PostProcessVolume sanityVolume;
     [SerializeField] float sanityDrainRate = 5f;
 
-    public bool isSanityDraing = true;
+    public bool isSanityDraing;
     bool hasTriggedFade = false;
     [SerializeField] Fadein[] itemsToFadeIn;
     [SerializeField] PlayerMovement playermovement;
 
-   //[SerializeField] private SanitySounds sanitySounds;
+    //[SerializeField] private SanitySounds sanitySounds;
 
-    //private void Awake()
-    //{
-    //    sanitySounds = GetComponent<SanitySounds>();
-    //}
+    private void Start()
+    {
+        isSanityDraing = false;
+    }
 
     // Update is called once per frame
     void Update()

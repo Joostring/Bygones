@@ -19,6 +19,7 @@ public class SanityLoss : MonoBehaviour
 
             if (Physics.Raycast(ray, out hitInfo, InteractRange, interactableLayer))
             {
+                
                 ObjectSanityLoss sanityLossAmount = hitInfo.collider.GetComponent<ObjectSanityLoss>();
                 if (sanityLossAmount != null && !sanityLossAmount.hasTriggerdSanityLoss)
                 {
@@ -27,6 +28,8 @@ public class SanityLoss : MonoBehaviour
 
                 }
             }
+            
+
         }
     }
 }

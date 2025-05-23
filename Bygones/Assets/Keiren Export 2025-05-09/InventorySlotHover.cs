@@ -56,6 +56,7 @@ public class InventorySlotHover : MonoBehaviour, IPointerEnterHandler, IPointerE
             case "Note_3_Inspect": return "A note from a mother";
             case "Note_4_Inspect": return "A letter from Martha";
             case "Note_Diary_Inspect": return "Ollies diary";
+            case "Note_Final_Inspect": return "Note from my mother";
             default: return null;;
         }
     }

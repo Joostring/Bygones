@@ -7,23 +7,22 @@ using UnityEngine;
 public class EndScene : MonoBehaviour
 {
     [SerializeField] Crossfade crossfade;
+    [SerializeField] private InspectSystem inspectSystem;
 
-    [SerializeField] KeyCode interact = KeyCode.E;
-    private bool inReach = false;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            inReach = true;
-        }
-    }
+
+
 
     private void Update()
     {
-        if (inReach && Input.GetKeyDown(interact))
+        if (inspectSystem.HasItem("Note_Final_Inspect"))
         {
+            Debug.Log("Final note found. Loading next scene.");
             crossfade.LoadNextScene();
+        }
+        else
+        {
+            Debug.Log("Final note NOT found.");
         }
     }
 }
