@@ -20,6 +20,8 @@ public class LowSanityTimer : MonoBehaviour
     private void Start()
     {
         isSanityDraing = false;
+        
+        sanityVolume.weight = Mathf.InverseLerp(100, 0, sanityProcentage);
     }
 
     // Update is called once per frame
@@ -39,8 +41,7 @@ public class LowSanityTimer : MonoBehaviour
         sanityProcentage -= sanityDrainRate * Time.deltaTime;
         sanityProcentage = Mathf.Clamp(sanityProcentage, 0, 100);
 
-        float weight = Mathf.InverseLerp(100, 0, sanityProcentage);
-        sanityVolume.weight = weight;
+        
 
 
         if (sanityProcentage <= 50f && !hasTriggedFade && itemsToFadeIn.Length > 0)

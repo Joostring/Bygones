@@ -86,8 +86,7 @@ public class InspectSystem : MonoBehaviour
     public PostProcessVolume postProcessVolume;
     private DepthOfField depthOfField;
 
-    private bool isDelayingInspection = false;
-    [SerializeField] private float inspectionStartDelay = 2f;
+    
     public CameraShake cameraShaker;
 
 

@@ -135,7 +135,7 @@ public class ProgressSystem : MonoBehaviour
 
     private void UpdateProgressText()
     {
-        progressText.text = string.Join("\n\n", notes.Select(note => note.StartsWith("<crossed>") ? $"<color=grey><s>{note.Substring(9)}</s></color>" : note));
+        progressText.text = string.Join("\n\n", notes.Select(note => note.StartsWith("<crossed>") ? $"<color=black><s>{note.Substring(9)}</s></color>" : note));
     }
 
     /// <summary>
