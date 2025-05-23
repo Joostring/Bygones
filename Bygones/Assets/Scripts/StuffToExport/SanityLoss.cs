@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SanityLoss : MonoBehaviour
 {
-    [SerializeField] LowSanityTimer lowSanityTimer;
+    [SerializeField] LowSanityTimer lowSanityTimer;    
     public Transform InteractorSource;
     public float InteractRange = 3f;
     public LayerMask interactableLayer;

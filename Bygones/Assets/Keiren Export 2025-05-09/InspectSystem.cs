@@ -269,49 +269,7 @@ public class InspectSystem : MonoBehaviour
     }
 
 
-    //void HandleInteraction()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.E) && !isDelayingInspection)
-    //    {
-    //        Ray ray = new Ray(InteractorSource.position, InteractorSource.forward);
-    //        RaycastHit hitInfo;
-
-    //        if (Physics.Raycast(ray, out hitInfo, InteractRange, interactableLayer))
-    //        {
-                
-                
-    //            isDelayingInspection = true;
-    //            if (cameraShaker != null)
-    //            {
-    //                cameraShaker.TriggerShake();
-    //            }
-    //            StartCoroutine(DelayedStartInspectMode(hitInfo.transform));
-    //        }
-    //    }
-    //}
-
-    //IEnumerator DelayedStartInspectMode(Transform target)
-    //{
-    //    yield return new WaitForSeconds(inspectionStartDelay);       
-    //    StartInspectMode(target);
-    //    isDelayingInspection = false;
-
-    //    // Not added by Keiren - Flytta denna logik hit så den sker efter inspektionen startat
-    //    if (objectToInspect != null) // PROGRESS NOTES ADDED WHEN INSPECTING AN ITEM
-    //    {
-    //        ProgressNoteData noteData = objectToInspect.GetComponent<ProgressNoteData>();
-
-    //        if (noteData != null && !noteData.noteAlreadyAdded)
-    //        {
-    //            foreach (string line in noteData.noteLines)
-    //            {
-    //                progressSystem.AddNote(line);
-    //            }
-    //            noteData.noteAlreadyAdded = true;
-    //        }
-    //    }
-    //    //--------
-    //}
+   
 
     void HandleInspection()
     {

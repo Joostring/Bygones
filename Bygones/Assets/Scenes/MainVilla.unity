@@ -10649,7 +10649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &390446245
 Transform:
   m_ObjectHideFlags: 0
@@ -12030,7 +12030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1115644768936513444, guid: bce67722754378e41aa73a946406cc04, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4123436169484229759, guid: bce67722754378e41aa73a946406cc04, type: 3}
       propertyPath: m_LocalPosition.x
@@ -42271,7 +42271,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8976497893215678872, guid: ee1788a8b5149674b9fcbdb138ff6cb7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8881498299341331623, guid: ee1788a8b5149674b9fcbdb138ff6cb7, type: 3}
@@ -72392,31 +72393,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4015734552924711915, guid: 700f832b48fef064ab7f1f3a8ab2e221, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 196.73839
+      value: 129.80539
       objectReference: {fileID: 0}
     - target: {fileID: 4015734552924711915, guid: 700f832b48fef064ab7f1f3a8ab2e221, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.363264
+      value: 11.271198
       objectReference: {fileID: 0}
     - target: {fileID: 4015734552924711915, guid: 700f832b48fef064ab7f1f3a8ab2e221, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 499.03543
+      value: 481.0656
       objectReference: {fileID: 0}
     - target: {fileID: 4015734552924711915, guid: 700f832b48fef064ab7f1f3a8ab2e221, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.77481925
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4015734552924711915, guid: 700f832b48fef064ab7f1f3a8ab2e221, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.040488902
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4015734552924711915, guid: 700f832b48fef064ab7f1f3a8ab2e221, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6296009
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4015734552924711915, guid: 700f832b48fef064ab7f1f3a8ab2e221, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.04023148
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4015734552924711915, guid: 700f832b48fef064ab7f1f3a8ab2e221, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -86960,10 +86961,18 @@ PrefabInstance:
     - target: {fileID: 4770862918941075465, guid: 65a955d52deb75142aef0bfdf20a3f73, type: 3}
       propertyPath: inspectSystem
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4179417946084010504}
     - target: {fileID: 4770862918941075465, guid: 65a955d52deb75142aef0bfdf20a3f73, type: 3}
       propertyPath: nameOfKeyForGate
       value: Key_Gate_Inspect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4770862918941075465, guid: 65a955d52deb75142aef0bfdf20a3f73, type: 3}
+      propertyPath: OpenAnimationName
+      value: IronGate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5686077027806499203, guid: 65a955d52deb75142aef0bfdf20a3f73, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8502328674759141898, guid: 65a955d52deb75142aef0bfdf20a3f73, type: 3}
       propertyPath: m_LocalScale.y

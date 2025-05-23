@@ -186,6 +186,33 @@ public class RaycastDoor : MonoBehaviour
                                 B_currentDoor.EnableLeverInteraction();
                             }
                         }
+
+                    }
+                    else if (currentGate != null)
+                    {
+                        string keyRequired = currentGate.GetRequiredKey();
+
+                        if (inspectsystem.HasItem(keyRequired))
+
+                        {
+                            Debug.Log("Gate is unlocked. Playing animation.");
+                            currentGate.PlayAnimation();
+
+                        }
+                        else
+                        {
+                            Debug.Log("Gate is still locked.");
+                            ProgressNoteData noteData = currentGate.GetComponentInParent<ProgressNoteData>();
+                            if (noteData != null && !noteData.noteAlreadyAdded)
+                            {
+                                foreach (string line in noteData.noteLines)
+                                {
+                                    progressSystem.AddNote(line);
+                                    noteData.noteAlreadyAdded = true;
+                                }
+
+                            }
+                        }
                     }
                 }
             }

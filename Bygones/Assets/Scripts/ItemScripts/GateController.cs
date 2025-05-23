@@ -47,7 +47,7 @@ public class GateController : MonoBehaviour
 
     public void PlayAnimation()
     {
-        if (!gateOpen && !pauseInteraction/* && inspectSystem.HasItem("Gatekey_Inspect")*/)
+        if (!gateOpen && !pauseInteraction && inspectSystem.HasItem("Key_Gate_Inspect"))
         {
             gateAnim.Play(OpenAnimationName, 0, 0.0f);
             gateOpen = true;
