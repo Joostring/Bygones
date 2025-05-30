@@ -12140,6 +12140,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4267930188148491720, guid: bce67722754378e41aa73a946406cc04, type: 3}
+      propertyPath: priority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267930188148491720, guid: bce67722754378e41aa73a946406cc04, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
