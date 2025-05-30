@@ -15,6 +15,7 @@ public class ProgressSystem : MonoBehaviour
     public GameObject progressSystemObject; // Döp om för att undvika förvirring med klassnamnet
     [SerializeField] private GameObject ProgressNoteData;
     public TMP_Text progressText;
+    [SerializeField] private AudioSource scribbleClip;
 
     private bool isVisible = false;
 
@@ -53,9 +54,17 @@ public class ProgressSystem : MonoBehaviour
         if (string.IsNullOrWhiteSpace(newNote))
             return;
 
-        notes.Add(newNote);
-        UpdateProgressText();
-        ShowNotification = true;
+        if (!notes.Contains(newNote)) // Check if the note already exists
+        {
+            notes.Add(newNote);
+            UpdateProgressText();
+            scribbleClip.Play();
+            ShowNotification = true;
+        }
+        else
+        {
+            Debug.Log("Note already exists: " + newNote);
+        }
     }
 
     private void UpdateProgressText()

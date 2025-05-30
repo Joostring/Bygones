@@ -1,59 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
+//Made by Jennifer
 
 public class PlayerLook : MonoBehaviour
 {
+    public Transform playerCamera;
 
-    public Transform PlayerCamera;
-    public Vector2 Sensitivity;
-
-    private Vector2 XYRotation;
-    private bool isPaused = false;
+    public int mouseSensitivity;
+    float xRotation, yRotation;
+    private float mouseX, mouseY;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    TogglePause();
-        //}
+        mouseX *= Time.deltaTime * mouseSensitivity;
+        mouseY *= Time.deltaTime * mouseSensitivity;
 
-        if (isPaused) return; // Stop camera movement when paused
+        yRotation += mouseX;
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        Vector2 MouseInput = new Vector2
-        {
-            x = Input.GetAxis("Mouse X"),
-            y = Input.GetAxis("Mouse Y")
-        };
+        transform.rotation = Quaternion.Euler(0, yRotation, 0);
+        playerCamera.rotation = Quaternion.Euler(xRotation, yRotation, 0);
 
-        XYRotation.x -= MouseInput.y * Sensitivity.y;
-        XYRotation.y += MouseInput.x * Sensitivity.x;
-
-        XYRotation.x = Mathf.Clamp(XYRotation.x, -90f, 90f);
-
-        transform.eulerAngles = new Vector3(0f, XYRotation.y, 0f);
-        PlayerCamera.localEulerAngles = new Vector3(XYRotation.x, 0f, 0f);
     }
 
-    private void TogglePause()
+    private void OnLook(InputValue input)
     {
-        isPaused = !isPaused;
-
-        if (isPaused)
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = 0f;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Time.timeScale = 1f;
-        }
+        mouseX = input.Get<Vector2>().x;
+        mouseY = input.Get<Vector2>().y;
     }
-
 }

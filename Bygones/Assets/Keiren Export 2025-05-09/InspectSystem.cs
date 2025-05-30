@@ -241,10 +241,10 @@ public class InspectSystem : MonoBehaviour
 
             if (Physics.Raycast(ray, out hitInfo, InteractRange, interactableLayer))
             {
-                if (cameraShaker != null)
-                {
-                    cameraShaker.TriggerShake();
-                }
+                //if (cameraShaker != null)
+                //{
+                //    cameraShaker.TriggerShake();
+                //}
                 StartInspectMode(hitInfo.transform);
 
                 // not added by Keiren
@@ -426,7 +426,8 @@ public class InspectSystem : MonoBehaviour
 
     void LateUpdate()
     {
-        
+        if (Time.timeScale == 0) { return; }
+
         if (isInspecting || isInventoryOpen)
             SetCursorVisibility(true);
         else

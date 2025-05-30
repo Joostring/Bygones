@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2036993454096828000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6147609774880074737}
+  - component: {fileID: 7771649228039431441}
+  - component: {fileID: 6102082276563318599}
+  - component: {fileID: 3219845047992978091}
+  - component: {fileID: 6808831814137543090}
+  - component: {fileID: 320297293906810822}
+  m_Layer: 0
+  m_Name: Flashback_kidRoom1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6147609774880074737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036993454096828000}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 250.80334, y: 28.476, z: 507.27}
+  m_LocalScale: {x: 1, y: 0.96684, z: 3.5976}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!33 &7771649228039431441
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036993454096828000}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &6102082276563318599
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036993454096828000}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3219845047992978091
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036993454096828000}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6808831814137543090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036993454096828000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7480426233fbbc64d9f502ee3d027543, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashBackEvent: {fileID: 0}
+  flashbackTexts:
+  - "<color=#BABAAE><i>JD and Ollie are sitting on the chairs by the small table
+    in JD\u2019s bedroom, drawing. Both of them are laughing loudly while trying
+    to take the piece of paper on the table from one another."
+  - "<color=#baaeae>(Ollie) \u201CI don\u2019t look like that! And why am I wearing
+    diapers? I\u2019m not a baby!\u201D \r\nOllie tries to grab the paper from his
+    brother, who is adding more onto the drawing.\r\n"
+  - "(JD) \u201CWhat do you mean? That\u2019s exactly what you look like!\u201D "
+  - "<color=#baaeae>(Ollie) \u201CWhy do I you get a sword but I only get a teddybear?
+    That\u2019s not fair!\u201D"
+  - "(JD) \u201CYou\u2019re too young to have a sword. I think a teddybear fits you
+    perfectly!\u201D "
+  - <color=#BABAAE><i>Ollie finally manages to snatch the paper from his brother
+    and starts scribbling on it in a hurry.
+  - "<color=#baaeae>(Ollie) \u201CFine! But then I want a magic wand so I can turn
+    my teddy into a BIG MONSTER!\u201D"
+  - "(JD) \u201CNo fair! I also want a big monster! Give that to me!\u201D"
+  - "<color=#baaeae>(Ollie) \u201CNO! You\u2019re already a big monster!\u201D"
+  - "(JD) \u201CWhat did you just say to me?"
+  - <color=#BABAAE><i>JD leans over the table and starts tickling his brother mercilessly.
+  - "(JD) \u201CSay that again, what am I?\u201D "
+  - "<color=#BABAAE><i>Ollie starts laughing uncontrollably.\n<color=#baaeae>(Ollie)
+    \u201CSTOP IT!\u201D"
+  - "<color=#BABAAE><i>OJD smiles and laughs along side his brother. \r\nIf only
+    every day could be like this. "
+  textDisplayDuration: 8
+  hasTriggerdFlashback: 0
+--- !u!114 &320297293906810822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036993454096828000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b5e677f5c60e548a68ce75b82380be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

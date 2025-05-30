@@ -12,6 +12,11 @@ public class Candle : MonoBehaviour
     [SerializeField] private KeyCode lightKey = KeyCode.E;
     [SerializeField] public InspectSystem inspectsystem;
 
+    [SerializeField] private GameObject candleStick;
+    [SerializeField] private ProgressNoteData progressNoteData;
+    [SerializeField] private ProgressSystem progressSystem;
+
+
     public bool unLit;
     private bool inReach;
 
@@ -28,6 +33,15 @@ public class Candle : MonoBehaviour
         {
             inReach = true;
             lightText.SetActive(true);
+            ProgressNoteData noteData = candleStick.GetComponentInParent<ProgressNoteData>();
+            if (noteData != null && progressSystem != null && noteData.noteAlreadyAdded == false)
+            {
+                foreach (string line in noteData.noteLines)
+                {
+                    progressSystem.AddNote(line);
+                }
+                noteData.noteAlreadyAdded = true;
+            }
             
         }
     }
@@ -49,6 +63,14 @@ public class Candle : MonoBehaviour
 
             foreach (GameObject go in flames) 
             {
+                ProgressNoteData noteData = candleStick.GetComponentInParent<ProgressNoteData>();
+                if (noteData != null && progressSystem != null)
+                {
+                    foreach (string line in noteData.noteLines)
+                    {
+                        progressSystem.CrossOutNote(line);
+                    }
+                }
                 go.SetActive(true);
                 
             }

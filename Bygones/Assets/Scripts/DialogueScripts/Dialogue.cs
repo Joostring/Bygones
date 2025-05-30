@@ -1,96 +1,93 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//Written by Jennifer
+
 public class Dialogue : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public TextMeshProUGUI textComponent;
-    public Camera playerCam;
-    public string[] lines;
-    public float textSpeed;
 
-    private int index;
+    [SerializeField] float textSpeed;
+    [SerializeField] float lookDistance;
+    [SerializeField] float dialogueCooldown;
+
     private bool dialogueStarted = false;
+    private float lastDialogueTime = -Mathf.Infinity;
 
-    private float inputCooldown = 0.2f;
-    private float lastInputTime = 0f;
+    public string[] lines;
+    private int index;
 
     void Start()
     {
         textComponent.text = string.Empty;
-        playerCam = GameObject.Find("PlayerCamera").GetComponent<Camera>();
+        textComponent.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-       
-        if (!dialogueStarted)
+        //If the dialogue hasn't started and the time is longer than the last dialogue + the dialogue cooldown it'll play the dialogue
+        if (!dialogueStarted && Time.time >= lastDialogueTime + dialogueCooldown)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (LookingAtObject())
             {
-                Ray ray = playerCam.ScreenPointToRay(Input.mousePosition);
-                
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit))
-                {
-                    if (hit.transform == transform)
-                    {
-                        dialogueStarted = true;
-                        StartDialogue();
-                    }
-                }
+                dialogueStarted = true;
+                StartDialogue();
             }
         }
-        else
-        {
-            if (Time.time - lastInputTime > inputCooldown && Input.GetKey(KeyCode.Space))
-            {
-                lastInputTime = Time.time;
+    }
 
-                if (textComponent.text == lines[index])
-                {
-                    NextLine();
-                }
-                else
-                {
-                    StopAllCoroutines();
-                    textComponent.text = lines[index];
-                }
-            }
+    bool LookingAtObject()
+    {
+        //Checks if the player is looking at an object with dialogue
+        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, lookDistance))
+        {
+            return hit.transform == transform;
         }
+
+        return false;
     }
 
     void StartDialogue()
     {
+        //Starts dialogue
         index = 0;
+        textComponent.gameObject.SetActive(true);
         StartCoroutine(TypeLine());
+    }
+    void EndDialogue()
+    {
+        //Ends dialogue
+        textComponent.gameObject.SetActive(false);
+        dialogueStarted = false;
+        lastDialogueTime = Time.time;
     }
 
     IEnumerator TypeLine()
     {
+        //Empties the string then begins writing the dialogue written in inspector one letter at a time
         textComponent.text = string.Empty;
-        foreach (char c in lines[index].ToCharArray())
+
+        foreach (char character in lines[index].ToCharArray())
         {
-            textComponent.text += c;
+            textComponent.text += character;
             yield return new WaitForSeconds(textSpeed);
         }
-    }
 
-    void NextLine()
-    {
+        //Waits a while before moving on to next line or ending the dialogue
+        yield return new WaitForSeconds(1f);
+
         if (index < lines.Length - 1)
         {
             index++;
-            StartCoroutine(TypeLine());  
+            StartCoroutine(TypeLine());
         }
         else
         {
-            textComponent.gameObject.SetActive(false);
+            EndDialogue();
         }
     }
 }

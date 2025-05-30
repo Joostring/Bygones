@@ -15,7 +15,8 @@ public class Codelock : MonoBehaviour
     [SerializeField] private string correctCode = "864351";
     [SerializeField] private GameObject matchesObject;
     [SerializeField] private GameObject newspaperObject;
-
+    [SerializeField] private ProgressSystem progressSystem;
+    [SerializeField] private ProgressNoteData progressNote;
     private string input;
     public bool boxOpen;
     private bool inReach;
@@ -37,6 +38,8 @@ public class Codelock : MonoBehaviour
         {
             inReach = true;
             lockText.SetActive(true);
+
+            
         }
     }
 
@@ -57,6 +60,15 @@ public class Codelock : MonoBehaviour
         {
             inputFieldObject.SetActive(true);
             inputField.ActivateInputField();
+            ProgressNoteData noteData = inputFieldObject.GetComponentInParent<ProgressNoteData>();
+            if (noteData != null && !noteData.noteAlreadyAdded)
+            {
+                foreach (string line in noteData.noteLines)
+                {
+                    progressSystem.AddNote(line);
+                    noteData.noteAlreadyAdded = true;
+                }
+            }
 
         }
 
@@ -69,6 +81,14 @@ public class Codelock : MonoBehaviour
         {
             if (enteredCode == correctCode)
             {
+                ProgressNoteData noteData = inputFieldObject.GetComponentInParent<ProgressNoteData>();
+                if (noteData != null && progressSystem != null)
+                {
+                    foreach (string line in noteData.noteLines)
+                    {
+                        progressSystem.CrossOutNote(line);
+                    }
+                }
                 boxOpen = true;                               
                 inputFieldObject.SetActive(false);
                 inputField.text = "";
@@ -78,6 +98,8 @@ public class Codelock : MonoBehaviour
                 matchesObject.SetActive(true);
                 newspaperObject.SetActive(true);
                 boxController.PlayAnimation();
+
+                
             }
             else
             {

@@ -12,6 +12,7 @@ public class FlashBackEvent : MonoBehaviour
     [SerializeField] LayerMask greyLayer;
     [SerializeField] GameObject flashbackPanel;
     [SerializeField] public TMP_Text flashbackText;
+    [SerializeField] GameObject canvasGui;
     
     private bool isFlashBack = false;
     [SerializeField] float flashbackTimer = 0f;
@@ -25,6 +26,7 @@ public class FlashBackEvent : MonoBehaviour
         {
             flashbackPanel.SetActive(false);
             flashbackAnimator = flashbackText.GetComponent<Animator>();
+          
         }
     }
 
@@ -90,6 +92,7 @@ public class FlashBackEvent : MonoBehaviour
         {
             flashbackText.text = currentTriggerFlashback.flashbackTexts[currentTextIndex];
             flashbackPanel.SetActive(true);
+            canvasGui.SetActive(false);
 
         }
         else
@@ -119,6 +122,10 @@ public class FlashBackEvent : MonoBehaviour
         if (flashbackPanel != null)
         {
             flashbackPanel.SetActive(false);
+        }
+        if (canvasGui != null)
+        {
+            canvasGui.SetActive(true);
         }
         currentTriggerFlashback = null;
     }

@@ -6,6 +6,7 @@ public class CameraShake : MonoBehaviour
 {
     public float shakeDuration = 0.15f;
     public float shakeMagnitude = 0.1f;
+    [SerializeField] private AudioSource screamSound;
 
     private Vector3 originalPosition;
     private float currentShakeTime = 0f;
@@ -14,6 +15,10 @@ public class CameraShake : MonoBehaviour
     {
         originalPosition = transform.localPosition;
         currentShakeTime = shakeDuration;
+        if (screamSound != null)
+        {
+            screamSound.Play();
+        }
     }
 
     void Update()

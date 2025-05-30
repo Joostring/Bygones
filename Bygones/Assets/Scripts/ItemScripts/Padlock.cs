@@ -17,6 +17,9 @@ public class Padlock : MonoBehaviour
     [SerializeField] private string correctCode = "9024";
     [SerializeField] private GameObject key;
 
+    [SerializeField] private ProgressSystem progressSystem;
+    [SerializeField] private ProgressNoteData progressNote;
+
     private string input;
     public bool boxOpen;
     private bool inReach;
@@ -56,7 +59,15 @@ public class Padlock : MonoBehaviour
         {
             inputFieldObject.SetActive(true);
             inputField.ActivateInputField();
-
+            ProgressNoteData noteData = padlock.GetComponentInParent<ProgressNoteData>();
+            if (noteData != null && progressSystem != null && noteData.noteAlreadyAdded == false)
+            {
+                foreach (string line in noteData.noteLines)
+                {
+                    progressSystem.AddNote(line);
+                }
+                noteData.noteAlreadyAdded = true;
+            }
         }
         
         
@@ -68,6 +79,14 @@ public class Padlock : MonoBehaviour
         {
             if (enteredCode == correctCode)
             {
+                ProgressNoteData noteData = padlock.GetComponentInParent<ProgressNoteData>();
+                if (noteData != null && progressSystem != null)
+                {
+                    foreach (string line in noteData.noteLines)
+                    {
+                        progressSystem.CrossOutNote(line);
+                    }
+                }
                 boxOpen = true;
                 padlock.SetActive(false);
                 boxController.PlayAnimation();
@@ -77,6 +96,7 @@ public class Padlock : MonoBehaviour
                 lockText.SetActive(false);
                 key.SetActive(true) ;
                 Debug.Log("Padlock opened");
+                
             }
             else
             {
