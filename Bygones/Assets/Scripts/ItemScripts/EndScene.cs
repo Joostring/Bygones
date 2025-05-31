@@ -8,6 +8,7 @@ public class EndScene : MonoBehaviour
 {
     [SerializeField] Crossfade crossfade;
     [SerializeField] private InspectSystem inspectSystem;
+    [SerializeField] private int endScene = 4;
 
 
 
@@ -18,7 +19,7 @@ public class EndScene : MonoBehaviour
         if (inspectSystem.HasItem("Note_Final_Inspect"))
         {
             Debug.Log("Final note found. Loading next scene.");
-            crossfade.LoadNextScene();
+            crossfade.LoadScene(endScene);
         }
         else
         {

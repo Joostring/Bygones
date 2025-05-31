@@ -9,6 +9,7 @@ public class SceneTransDoor : MonoBehaviour
    
     [SerializeField]private Crossfade crossfade;
     [SerializeField]private InspectSystem inspectSystem;
+    [SerializeField] private int basementScene = 3;
     
     [SerializeField] private bool isOpen = false;
     private bool atDoor = false;
@@ -45,7 +46,7 @@ public class SceneTransDoor : MonoBehaviour
         if (isOpen && Input.GetKeyDown(KeyCode.E) && atDoor)
         {
             Open.PlayDelayed(openDelay);
-            crossfade.LoadNextScene();
+            crossfade.LoadScene(3);
         }
 
 

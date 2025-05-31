@@ -52436,6 +52436,10 @@ PrefabInstance:
       value: OlliesDoor
       objectReference: {fileID: 0}
     - target: {fileID: 4952643286606201799, guid: 0346ad7faa3a195408ca74a11c4722a4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4952643286606201799, guid: 0346ad7faa3a195408ca74a11c4722a4, type: 3}
       propertyPath: m_TagString
       value: Locked
       objectReference: {fileID: 0}
@@ -54109,6 +54113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crossfade: {fileID: 511747875}
   inspectSystem: {fileID: 5253649318973224738}
+  basementScene: 3
   isOpen: 0
   nameOfKeyForDoor: 
   Open: {fileID: 1581710794}
@@ -80698,6 +80703,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a8502d26f17d44988d73cf858f6c25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5253649318973224739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3852313489600451272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ca6f8997e4a88b449eb2c2ab68fff31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sanity: {fileID: 8453936160416618038}
+  crossfade: {fileID: 511747875}
+  deathSceneIndex: 5
 --- !u!33 &5258323898647328051
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -84600,31 +84620,31 @@ PrefabInstance:
       objectReference: {fileID: 8453936160416618040}
     - target: {fileID: 877692793857971531, guid: c881da5497724ef4ebf91ad9c40d7bb9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 219.88461
+      value: 207.31865
       objectReference: {fileID: 0}
     - target: {fileID: 877692793857971531, guid: c881da5497724ef4ebf91ad9c40d7bb9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25.123487
+      value: 25.04606
       objectReference: {fileID: 0}
     - target: {fileID: 877692793857971531, guid: c881da5497724ef4ebf91ad9c40d7bb9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 498.65674
+      value: 497.95425
       objectReference: {fileID: 0}
     - target: {fileID: 877692793857971531, guid: c881da5497724ef4ebf91ad9c40d7bb9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.68948615
+      value: -0.71917695
       objectReference: {fileID: 0}
     - target: {fileID: 877692793857971531, guid: c881da5497724ef4ebf91ad9c40d7bb9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.03036282
+      value: -0.17719398
       objectReference: {fileID: 0}
     - target: {fileID: 877692793857971531, guid: c881da5497724ef4ebf91ad9c40d7bb9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.72361654
+      value: -0.6477345
       objectReference: {fileID: 0}
     - target: {fileID: 877692793857971531, guid: c881da5497724ef4ebf91ad9c40d7bb9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.008135584
+      value: 0.17840075
       objectReference: {fileID: 0}
     - target: {fileID: 877692793857971531, guid: c881da5497724ef4ebf91ad9c40d7bb9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -84656,7 +84676,7 @@ PrefabInstance:
       objectReference: {fileID: 1186683323}
     - target: {fileID: 3527497761281504405, guid: c881da5497724ef4ebf91ad9c40d7bb9, type: 3}
       propertyPath: sanityDrainRate
-      value: 5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3771024952459611057, guid: c881da5497724ef4ebf91ad9c40d7bb9, type: 3}
       propertyPath: lowSanityTimer
@@ -84870,7 +84890,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 2412850161799654439, guid: c881da5497724ef4ebf91ad9c40d7bb9, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7448310016530779222, guid: c881da5497724ef4ebf91ad9c40d7bb9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5253649318973224739}
   m_SourcePrefab: {fileID: 100100000, guid: c881da5497724ef4ebf91ad9c40d7bb9, type: 3}
 --- !u!33 &6021402277329790436
 MeshFilter:

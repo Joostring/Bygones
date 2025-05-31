@@ -722,41 +722,49 @@ public class InspectSystem : MonoBehaviour
         BackgroundUI.SetActive(true);
 
         PickupUI.SetActive(false);
+        readUI.SetActive(false);
 
         switch (itemName)
         {
             case "Book_A_Inspect":
                 uiElements[0].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.75f;
                 maxZoom = 1f;
                 break;
             case "Book_B_Inspect":
                 uiElements[1].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.5f;
                 maxZoom = 1f;
                 break;
             case "Key_Front_Inspect":
                 uiElements[2].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.4f;
                 maxZoom = 0.5f;
                 break;
             case "Key_Decorative_Inspect":
                 uiElements[3].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.4f;
                 maxZoom = 0.5f;
                 break;
             case "Key_Gen_Inspect":
                 uiElements[4].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.45f;
                 maxZoom = 0.55f;
                 break;
             case "Key_Office_Inspect":
                 uiElements[5].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.45f;
                 maxZoom = 0.55f;
                 break;
             case "Flashlight_Inspect":
                 uiElements[6].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.55f;
                 maxZoom = 0.8f;
                 break;
@@ -768,26 +776,31 @@ public class InspectSystem : MonoBehaviour
                 break;
             case "Globe_Inspect":
                 uiElements[8].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.65f;
                 maxZoom = 0.9f;
                 break;
             case "Wine_Inspect":
                 uiElements[9].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.7f;
                 maxZoom = 0.9f;
                 break;
             case "Key_Gate_Inspect":
-                uiElements[10].SetActive(true);               
+                uiElements[10].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.5f;
                 maxZoom = 0.8f;
                 break;
             case "Key_Masterbedroom_Inspect":
-                uiElements[11].SetActive(true);                
+                uiElements[11].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.5f;
                 maxZoom = 0.8f;
                 break;
             case "Matches_Inspect":
                 uiElements[12].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.5f;
                 maxZoom = 0.7f;
                 break;
@@ -798,22 +811,26 @@ public class InspectSystem : MonoBehaviour
                 maxZoom = 1.2f;
                 break;
             case "Pills1F_Inspect":
-                uiElements[14].SetActive(true);               
+                uiElements[14].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.5f;
                 maxZoom = 0.5f;
                 break;
             case "Pills2F_Inspect":
-                uiElements[14].SetActive(true);                
+                uiElements[14].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.5f;
                 maxZoom = 0.5f;
                 break;
             case "PillsKitchen_Inspect":
-                uiElements[14].SetActive(true);            
+                uiElements[14].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.5f;
                 maxZoom = 0.5f;
                 break;
             case "Key_Basement_Inspect":
                 uiElements[15].SetActive(true);
+                readUI.SetActive(false);
                 minZoom = 0.5f;
                 maxZoom = 0.7f;
                 break;

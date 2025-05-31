@@ -9,9 +9,9 @@ public class Crossfade : MonoBehaviour
 {
     [SerializeField] private Animator transition;
     [SerializeField] private float transitionTime = 1f;
-    [SerializeField] private GameObject basementDoor;
-    [SerializeField] private bool isOpen = false;
-    [SerializeField] private InspectSystem inspectSystem;
+    //[SerializeField] private GameObject basementDoor;
+    //[SerializeField] private bool isOpen = false;
+    //[SerializeField] private InspectSystem inspectSystem;
 
 
     //private void Awake()
@@ -32,16 +32,30 @@ public class Crossfade : MonoBehaviour
 
     }
 
-    public void LoadNextScene()
-    {
-        StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
+    //public void LoadNextScene()
+    //{
+    //    StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
        
+    //}
+
+    // IEnumerator LoadScene(int sceneIndex)
+    //{
+    //    transition.SetTrigger("Start");
+    //    yield return new WaitForSeconds(transitionTime);
+    //    SceneManager.LoadScene(sceneIndex);
+    //}
+
+    public void LoadScene(int sceneIndex)
+    {
+        Debug.Log("Crossfade: Starting load of scene " + sceneIndex);
+        StartCoroutine(LoadSceneCoroutine(sceneIndex));
     }
 
-    IEnumerator LoadScene(int sceneIndex)
+    IEnumerator LoadSceneCoroutine(int sceneIndex)
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
+        Debug.Log("Crossfade: Loading scene " + sceneIndex);
         SceneManager.LoadScene(sceneIndex);
     }
 }
