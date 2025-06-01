@@ -7871,6 +7871,10 @@ PrefabInstance:
       value: Note_Final_Inspect
       objectReference: {fileID: 0}
     - target: {fileID: 5450420745062205992, guid: 27f7cabf7cde07f4cadce41f41235dea, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450420745062205992, guid: 27f7cabf7cde07f4cadce41f41235dea, type: 3}
       propertyPath: m_TagString
       value: Pickable
       objectReference: {fileID: 0}
@@ -9107,6 +9111,10 @@ PrefabInstance:
     - target: {fileID: 153735101372166121, guid: 51fda282f966f1e47b5c13f36c0a3ba6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 417118719742524518, guid: 51fda282f966f1e47b5c13f36c0a3ba6, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 417118719742524518, guid: 51fda282f966f1e47b5c13f36c0a3ba6, type: 3}
       propertyPath: m_StaticEditorFlags

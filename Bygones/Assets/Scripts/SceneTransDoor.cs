@@ -46,7 +46,7 @@ public class SceneTransDoor : MonoBehaviour
         if (isOpen && Input.GetKeyDown(KeyCode.E) && atDoor)
         {
             Open.PlayDelayed(openDelay);
-            crossfade.LoadScene(3);
+            crossfade.LoadScene(basementScene);
         }
 
 
