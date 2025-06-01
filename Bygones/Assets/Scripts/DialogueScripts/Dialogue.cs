@@ -39,6 +39,12 @@ public class Dialogue : MonoBehaviour
 
     bool LookingAtObject()
     {
+        if (Camera.main == null)
+        {
+            Debug.LogWarning("Main Camera not found! Make sure your camera is tagged as 'MainCamera'.");
+            return false;
+        }
+
         //Checks if the player is looking at an object with dialogue
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         RaycastHit hit;

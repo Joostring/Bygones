@@ -1,41 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 //Made by Jennifer
 
 public class PauseMenu : MonoBehaviour
 {
+
+    //Made by Jennifer
+
     bool isPaused = false;
 
-    GameObject playerObject; 
-    [SerializeField] GameObject pauseMenuObject; 
+    GameObject playerObject;
+    [SerializeField] GameObject pauseMenuObject;
     [SerializeField] GameObject pauseStartMenuObject;
     [SerializeField] GameObject menuList;
     [SerializeField] GameObject screenCursor;
-
+    private InspectSystem InspectSystem;
     private void Start()
     {
+        InspectSystem = GetComponent<InspectSystem>();
         playerObject = GameObject.FindGameObjectWithTag("Player");
         ResetPauseUI();
     }
 
     public void OnPauseGame(InputValue inputValue)
     {
-        Debug.Log("OnPauseGameCalled");
-        if (!isPaused) { PauseGame(); }
-        else if (isPaused) { UnPauseGame(); }
+        if (InspectSystem != null && InspectSystem.isInspecting)
+        {
+            return;
+        }
+
+        if (!isPaused)
+        {
+            PauseGame();
+        }
+        else
+        {
+            UnPauseGame();
+        }
     }
     public void PauseGame()
     {
         isPaused = true;
         Time.timeScale = 0;
         playerObject.GetComponent<PlayerInput>().SwitchCurrentActionMap("UIActionMap");
-        
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        
+
         pauseMenuObject.SetActive(true);
         screenCursor.SetActive(false);
     }

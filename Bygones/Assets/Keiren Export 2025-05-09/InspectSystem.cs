@@ -75,7 +75,7 @@ public class InspectSystem : MonoBehaviour
 
     private Transform objectToInspect;
     private Vector3 previousMousePos;
-    private bool isInspecting = false;
+    public bool isInspecting = false;
     private Vector3 originalPosition;
     private Quaternion originalRotation;
     public float currentZoom = 0.5f;
@@ -375,7 +375,7 @@ public class InspectSystem : MonoBehaviour
     }
 
 
-    void ExitInspectMode()
+    public void ExitInspectMode()
     {
         isInspecting = false;
         SetCursorVisibility(false);  // <-- använd istället för de två raderna
