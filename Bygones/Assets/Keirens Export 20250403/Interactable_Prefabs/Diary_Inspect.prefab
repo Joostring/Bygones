@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7816191080119449655}
   - component: {fileID: 6748978740897727376}
   - component: {fileID: 1624972337600971869}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Diary_Inspect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

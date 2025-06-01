@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 7183559449874381846}
   - component: {fileID: 5037088115077693909}
   - component: {fileID: 1395505207481828326}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Note_Final_Inspect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,6 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crossfade: {fileID: 0}
   inspectSystem: {fileID: 0}
+  endScene: 4
 --- !u!1 &5878915074538568466
 GameObject:
   m_ObjectHideFlags: 0

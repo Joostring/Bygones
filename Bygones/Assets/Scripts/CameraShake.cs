@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
-    public float shakeDuration = 0.15f;
-    public float shakeMagnitude = 0.1f;
+    private float shakeDuration = 0f;
+    private float shakeMagnitude = 0f;
     [SerializeField] private AudioSource screamSound;
 
     private Vector3 originalPosition;

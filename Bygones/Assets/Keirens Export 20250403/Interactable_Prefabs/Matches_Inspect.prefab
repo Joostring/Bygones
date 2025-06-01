@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8612421689952118411}
   - component: {fileID: 915851845404991834}
   - component: {fileID: 8369467015204795033}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Matches_Inspect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

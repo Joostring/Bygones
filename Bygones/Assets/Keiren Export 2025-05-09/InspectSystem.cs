@@ -56,10 +56,11 @@ public class InspectSystem : MonoBehaviour
     public TMP_Text hoverText;
     public GameObject readUI; // not added by Keiren
     public ProgressSystem progressSystem; // not added by Keiren
+    public PauseMenu pauseMenu;
 
     [Header("Inventory Gameobjects")]
     public GameObject inventoryCanvas;  // Referens till inventory Canvas
-    private bool isInventoryOpen = false;  // Håller koll på om inventory är öppet
+    public bool isInventoryOpen = false;  // Håller koll på om inventory är öppet
     public GameObject inventoryGrid; // Grid där ikonerna ska visas
     public GameObject inventoryIconPrefab; // Prefab för ikonen
     public Sprite Key_Icon, Note_Icon, flashlightIcon, defaultIcon, Matches_Icon; // Ikoner för objekt
@@ -75,7 +76,7 @@ public class InspectSystem : MonoBehaviour
 
     private Transform objectToInspect;
     private Vector3 previousMousePos;
-    private bool isInspecting = false;
+    public bool isInspecting = false;
     private Vector3 originalPosition;
     private Quaternion originalRotation;
     public float currentZoom = 0.5f;
@@ -143,7 +144,7 @@ public class InspectSystem : MonoBehaviour
     void HandleInventoryToggle()
     {
         // Kontrollera att inventory inte öppnas när vi inspekterar ett objekt
-        if (Input.GetKeyDown(KeyCode.Tab) && !isInspecting)
+        if (Input.GetKeyDown(KeyCode.Tab) && !isInspecting && pauseMenu.isPaused == false)
         {
             if (!isInventoryOpen)
             {
@@ -362,10 +363,7 @@ public class InspectSystem : MonoBehaviour
       
         UpdateUIForItem(objectToInspect.name, objectToInspect.gameObject);
 
-        //if (playerLook != null)
-        //{
-        //    playerLook.enabled = true; // Återaktivera musstyrningen när inspektionsläget startar
-        //}
+       
     }
 
     void SetCursorVisibility(bool visible)
@@ -378,7 +376,7 @@ public class InspectSystem : MonoBehaviour
     void ExitInspectMode()
     {
         isInspecting = false;
-        SetCursorVisibility(false);  // <-- använd istället för de två raderna
+        SetCursorVisibility(false);  
 
         objectToInspect.position = originalPosition;
         objectToInspect.rotation = originalRotation;

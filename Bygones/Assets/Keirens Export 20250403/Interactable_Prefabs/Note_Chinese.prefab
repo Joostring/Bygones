@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2302616385921102506}
   - component: {fileID: 7896324496887080164}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Note_Chinese
   m_TagString: Untagged
   m_Icon: {fileID: 0}

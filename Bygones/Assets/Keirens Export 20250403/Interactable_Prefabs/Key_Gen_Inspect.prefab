@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 676218604837813042}
   - component: {fileID: 5169455274015319014}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Key_Gen_Inspect
-  m_TagString: Pickable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

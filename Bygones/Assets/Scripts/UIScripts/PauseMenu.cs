@@ -1,19 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 //Made by Jennifer
 
 public class PauseMenu : MonoBehaviour
 {
-    bool isPaused = false;
+    public bool isPaused = false;
 
-    GameObject playerObject; 
-    [SerializeField] GameObject pauseMenuObject; 
+    GameObject playerObject;
+    [SerializeField] GameObject pauseMenuObject;
     [SerializeField] GameObject pauseStartMenuObject;
     [SerializeField] GameObject menuList;
     [SerializeField] GameObject screenCursor;
+    public InspectSystem InspectSystem;
 
     private void Start()
     {
@@ -23,22 +25,40 @@ public class PauseMenu : MonoBehaviour
 
     public void OnPauseGame(InputValue inputValue)
     {
-        Debug.Log("OnPauseGameCalled");
-        if (!isPaused) { PauseGame(); }
-        else if (isPaused) { UnPauseGame(); }
+        if (InspectSystem != null && InspectSystem.isInspecting)
+        {
+            return;
+        }
+
+        if (InspectSystem.isInventoryOpen == true)
+        {
+
+            return;
+        }
+
+        if (!isPaused)
+        {
+            PauseGame();
+        }
+        else
+        {
+            UnPauseGame();
+        }
     }
+
     public void PauseGame()
     {
         isPaused = true;
         Time.timeScale = 0;
         playerObject.GetComponent<PlayerInput>().SwitchCurrentActionMap("UIActionMap");
-        
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        
+
         pauseMenuObject.SetActive(true);
         screenCursor.SetActive(false);
     }
+
     public void UnPauseGame()
     {
         isPaused = false;
@@ -52,6 +72,7 @@ public class PauseMenu : MonoBehaviour
         screenCursor.SetActive(true);
         ResetPauseUI();
     }
+
     public void ResetPauseUI()
     {
         for (int i = 0; i < menuList.transform.childCount; i++)
@@ -60,9 +81,12 @@ public class PauseMenu : MonoBehaviour
         }
         pauseStartMenuObject.SetActive(true);
     }
+
     public void QuitGame()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#endif
     }
 }

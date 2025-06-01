@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5803778923573884096}
   - component: {fileID: 858664630421075540}
   - component: {fileID: 2027504450948509950}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Key_Masterbedroom_Inspect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
