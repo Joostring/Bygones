@@ -1,3 +1,5 @@
+// Author Mikael
+
 using UnityEngine;
 
 public class Pills : MonoBehaviour

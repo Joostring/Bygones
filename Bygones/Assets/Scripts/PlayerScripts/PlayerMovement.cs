@@ -1,3 +1,5 @@
+// Author : Keiren Stewart Wall
+
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour

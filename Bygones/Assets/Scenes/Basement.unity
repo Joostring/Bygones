@@ -5003,7 +5003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crossfade: {fileID: 1283241222}
   inspectSystem: {fileID: 1484637858}
-  endScene: 4
+  endScene: 5
 --- !u!114 &1484637874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5035,7 +5035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sanity: {fileID: 1805217718}
   crossfade: {fileID: 1283241222}
-  deathSceneIndex: 5
+  deathSceneIndex: 6
 --- !u!4 &1485686920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 496966, guid: 198a7384312e9d7418c7d2b63e402e12, type: 3}

@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// Author : Keiren Stewart Wall
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

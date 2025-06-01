@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Main_Menu_And_Transition_Scene/Transition scene.unity
     guid: eb2f7650442fd4843bc31d0b9c0af1be
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 25b3f11e03307c5428d4b6bdffcde820
+  - enabled: 1
     path: Assets/Scenes/MainVilla.unity
     guid: 55cedfcc2e54e0349880494e470078fb
   - enabled: 1

@@ -30,14 +30,7 @@ public class FootSteps : MonoBehaviour
        
     }
 
-    //private void Update()
-    //{
-    //    if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
-    //    {
-    //        AudioClip clip = GetRandomClip();
-    //        audioSource.PlayOneShot(clip);
-    //    }
-    //}
+    
     private void Step()
     {
         AudioClip clip = GetRandomClip();
@@ -52,11 +45,9 @@ public class FootSteps : MonoBehaviour
         {
             switch (terrainTextureIndex)
             {
-                case 0:
-                    //return stoneClips[UnityEngine.Random.Range(0, stoneClips.Length)];
+                case 0:                    
                     return grassClips[UnityEngine.Random.Range(0, grassClips.Length)];
-                case 1:
-                    //return mudClips[UnityEngine.Random.Range(0, mudClips.Length)];
+                case 1:                  
                     return stoneClips[UnityEngine.Random.Range(0, stoneClips.Length)];
                 case 2:
                 default:

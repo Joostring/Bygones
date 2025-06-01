@@ -1,3 +1,5 @@
+// Author : Mikael Zhu
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
