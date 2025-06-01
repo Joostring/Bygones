@@ -3,7 +3,62 @@ guid: c4b5a0cb37d177b47b9edc174d9e95e0
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bath
+    second: {fileID: 2100000, guid: 109432b4e929c5447924789644624498, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bathtube
+    second: {fileID: 2100000, guid: 8546bb0408a29a041b8a0ece38627eb5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Candle
+    second: {fileID: 2100000, guid: 01b492988457d7646ab4fed61a8564ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cups
+    second: {fileID: 2100000, guid: c2a901e26a25d524fad7772e9f8f7ea1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door and windows
+    second: {fileID: 2100000, guid: 2e8a0c6ccaca44e46a956063cb663674, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fabric
+    second: {fileID: 2100000, guid: e9208fac361375f4e8a1164f62ebdcea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor
+    second: {fileID: 2100000, guid: 5ffe7804e26f4e941b53ab6f40150e4d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Frames
+    second: {fileID: 2100000, guid: 4045af910a321a04f88c12e080051be5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: 6b6a091992adc6c41adfe14d670ac95c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Selling_Bump
+    second: {fileID: 2100000, guid: bf59504aefd2c3e4ca050e93f07a31ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_Trim
+    second: {fileID: 2100000, guid: 7734f39eff7ca3742903dc6de62d5ef8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

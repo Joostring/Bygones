@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5193142008869274073}
   m_Layer: 6
   m_Name: Key_Office_Inspect
-  m_TagString: Pickable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
